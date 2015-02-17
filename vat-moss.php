@@ -436,7 +436,7 @@ class WordPressPlugin {
 			define( 'VAT_MOSS_WORDPRESS_COMPATIBILITY', '4.1' );
 
 		if ( ! defined( 'VAT_MOSS_STORE_API_URL' ) )
-			define( 'VAT_MOSS_STORE_API_URL', 'https://www.lyquidity.com/wordpresstest/' );
+			define( 'VAT_MOSS_STORE_API_URL', 'https://www.lyquidity.com/wpstore/' );
 
 		if ( ! defined( 'VAT_MOSS_PRODUCT_NAME' ) )
 			define( 'VAT_MOSS_PRODUCT_NAME', 'WP VAT MOSS Management' );
