@@ -37,11 +37,11 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 	
 **Videos**
 
-	[Watch videos](http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/ "Videos showing the plug-in working") showing how to setup the plugin, create a submission and and send the return to HMRC
+	[Watch videos](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Videos showing the plug-in working") showing how to setup the plugin, create a submission and and send the return to HMRC
 	
 **Submit EC Sales list returns directly to HMRC**
 
-[Buy credits](http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/ "Buy credits") to submit your VAT MOSS return directly to HMRC.
+[Buy credits](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Buy credits") to submit your VAT MOSS return directly to HMRC.
 
 == Frequently Asked Questions ==
 
