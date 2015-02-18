@@ -8,7 +8,7 @@ Tested up to: 4.1
 Stable Tag: 1.0.1
 License: GNU Version 2 or Any Later Version
 
-Create submission definitions for VAT MOSS returns to be sent directly to HMRC from Easy Digital Downloads and Woo Commerce sales records.
+Create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
 
 == Description ==
 
