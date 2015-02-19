@@ -2,7 +2,7 @@
 Author URI: http://www.lyquidity.com/
 Plugin URI: http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/
 Contributors: bseddon
-Tags: VAT, HMRC, MOSS, tax, EU, UK
+Tags: VAT, HMRC, MOSS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
 Requires at least: 3.9.2
 Tested up to: 4.1
 Stable Tag: 1.0.1
@@ -23,7 +23,7 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 	* Easy Digital Downloads or
 	* Woo Commerce
 
-**Create quarterly or month submissions**
+**Create quarterly submissions**
 
 	* Select the transactions to be included
 	* The plugin will only present sales to EU consumers so you cannot select invalid sales records
