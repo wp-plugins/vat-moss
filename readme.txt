@@ -8,7 +8,7 @@ Tested up to: 4.1
 Stable Tag: 1.0.1
 License: GNU Version 2 or Any Later Version
 
-Create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
+Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
 
 == Description ==
 
@@ -75,3 +75,16 @@ Initial version released
 == Upgrade Notice ==
 
 Nothing here
+
+== Languages ==
+
+<p><b>AT/DE</b>&nbsp;Neues EU-Mehrwertsteuer MOSS Berichtsdefinitionen aus EasyDigitalDownloads und WooCommerce erstellen Sie Dateien hochladen zu richten an Ihren Steuerbehörde</p>
+<p><b>CY</b>&nbsp;EasyDigitalDownloads ve WooCommerce satış kayıtları bir AB KDV Moss rapor tanımlarını oluşturun ve yük dosyaları oluşturmak , vergi dairesine gönderilmesi gerekir</p>
+<p><b>DK</b>&nbsp;Opret en EU-moms Moss rapportdefinitioner fra EasyDigitalDownloads og WooCommerce salgsrekorder og skabe indlæse filer skal sendes til skattekontoret</p>
+<p><b>EE</b>&nbsp;Loo EL-i käibemaksu MOSS aruande määratlusi EasyDigitalDownloads ja WooCommerce müügi arvestust ja luua laadida faile saata oma Maksuhaldur</p>
+<p><b>FR/BE/LU</b>&nbsp;Créer UE TVA MOSS rapport définitions de EasyDigitalDownloads et WooCommerce records de ventes et de créer des fichiers de téléchargement pour être envoyé votre autorité fiscale</p>
+<p><b>IT</b>&nbsp;Creare un EU VAT Moss definizioni dei report da EasyDigitalDownloads e record di vendite WooCommerce e creare file di carico deve essere inviato all'ufficio delle imposte</p>
+<p><b>LI</b>&nbsp;Sukurti ES PVM Moss ataskaitos apibrėžimus iš EasyDigitalDownload ir WooCommerce pardavimų apskaitoje ir sukurti apkrovos failus turi būti siunčiami mokesčių inspekcijai</p>
+<p><b>NL/BE</b>&nbsp;Maak EU BTW MOSS rapport definities van EasyDigitalDownloads en WooCommerce verkoop records en uploaden van bestanden maken om uw belastingdienst worden gezonden</p>
+<p><b>PL</b>&nbsp;Załóż swoje definicje raportów VAT UE Moss z EasyDigitalDownloads i WooCommerce ewidencji sprzedaży i tworzenia plików obciążenia należy przesłać do urzędu skarbowego</p>
+<p><b>SE</b>&nbsp;Leverantörer i alla EU: s medlemsstater kan skapa EU-moms MOSS rapportdefinitioner från EasyDigitalDownloads och WooCommerce försäljningsrekord och skapa ladda upp filer som ska skickas din skattemyndighet.</p>

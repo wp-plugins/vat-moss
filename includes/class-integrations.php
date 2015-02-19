@@ -21,6 +21,18 @@ class MOSS_WP_Integrations {
 	private	$last_updated_option_name = "moss_euros_last_updated";
 	private	$last_data_option_name = "moss_euros_last_data";
 
+	private	$euro_zone_states = array("AT","BE","CY","EE","FI","FR","DE","GR","IE","IT","LV","LT","LU","MT","NL","PT","SK","SI","ES");
+	private $not_euro_zone_states = array(
+		"BG" => "BGN",
+		"HR" => "HRK",
+		"CZ" => "CZK",
+		"DK" => "DKK",
+		"GB" => "GBP",
+		"HU" => "HUF",
+		"PL" => "PLN",
+		"RO" => "RON",
+		"SE" => "SEK"
+	);
 	public function __construct() {
 
 		$this->load();
@@ -316,8 +328,10 @@ class MOSS_WP_Integrations {
 		if (strcasecmp($from_currency, $to_currency) == 0)
 			return $amount;
 
-		return (strcasecmp('GBP', $to_currency) == 0)
-			? $this->translate_to_sterling( $amount, $from_currency, $date, $payment_id  )
+		$not_euro_zone = in_array( strtoupper( $to_currency ), $this->not_euro_zone_states );
+
+		return $not_euro_zone
+			? $this->translate_to_non_euro_currency( $amount, strtoupper( $from_currency ), strtoupper( $to_currency ), $date, $payment_id  )
 			: $this->translate_to_euros( $amount, $from_currency, $date, $payment_id  );
 			
 		return $amount;
@@ -346,7 +360,7 @@ class MOSS_WP_Integrations {
 		}
 	}
 
-	function translate_to_sterling( $amount, $from_currency, $time, $payment_id  )
+	function translate_to_non_euro_currency( $amount, $from_currency, $to_currency, $time, $payment_id  )
 	{
 		// Maybe the shop already knows the correct rate to use
 		$shop_exchange_rate = apply_filters( 'moss_get_shop_exchange_rate', false, $payment_id );
@@ -358,7 +372,7 @@ class MOSS_WP_Integrations {
 
 			if ($rates === false) return $amount;
 
-			// OK, got some rates so convert.  First to EUR then to GBP
+			// OK, got some rates so convert.  First to EUR then to base
 			$euro_amount = $amount;
 			if (strcasecmp( $from_currency, 'EUR' ) !== 0)
 			{
@@ -368,9 +382,9 @@ class MOSS_WP_Integrations {
 
 				$euro_amount = $amount / $rates[$from_currency];
 			}
-
-			// Now from EUR to GBP
-			return round( $euro_amount * $rates['GBP'], 2 );
+error_log("$to_currency {$rates[$to_currency]}");
+			// Now from EUR to the base currency
+			return round( $euro_amount * $rates[$to_currency], 2 );
 		}
 		else
 		{

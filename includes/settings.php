@@ -182,10 +182,12 @@ function supported_formats()
 		'gb' => __( 'UK (spreadsheet)', 'vat_moss' ),
 		'at' => __( 'Austria (xml)', 'vat_moss' ),
 		'be' => __( 'Belgium (xml)', 'vat_moss' ),
+		'dk' => __( 'Denmark (csv)', 'vat_moss' ),
 		'de' => __( 'Germany (csv)', 'vat_moss' ),
 		'ee' => __( 'Estonia (xml)', 'vat_moss' ),
 		'lt' => __( 'Lithuania (xml)', 'vat_moss' ),
 		'lu' => __( 'Luxembourg (xml)', 'vat_moss' ),
+		'se' => __( 'Sweden (csv)', 'vat_moss' ),
 /*
 		'ie' => __( 'Ireland (xml)', 'vat_moss' ),
 		'pl' => __( 'Poland (Xml)', 'vat_moss' ),
