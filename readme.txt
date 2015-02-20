@@ -2,7 +2,7 @@
 Author URI: http://www.lyquidity.com/
 Plugin URI: http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/
 Contributors: bseddon
-Tags: VAT, HMRC, MOSS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
+Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
 Requires at least: 3.9.2
 Tested up to: 4.1
 Stable Tag: 1.0.1
@@ -34,21 +34,21 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 	* Coming soon: Cypriot, Danish, Irish and Dutch
 	* Coming later: France, Italy
 	* The Spanish and Slovakian tax authorities do not intend to support electronic file uploads
-	
+
 **Videos**
 
-	[Watch videos](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Videos showing the plug-in working") showing how to setup the plugin, create a submission and and send the return to HMRC
+	[Watch videos](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Videos showing the plug-in working") showing how to setup the plugin, create a report definition and generate an output file
 	
-**Submit EC Sales list returns directly to HMRC**
+**Generate a file you can upload to your tax authority**
 
-[Buy credits](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Buy credits") to submit your VAT MOSS return directly to HMRC.
+[Buy credits](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Buy credits") to generate a file the format required by your tax authority.
 
 == Frequently Asked Questions ==
 
 = Q. Do I need to buy credits to use the plugin? =
 A. You are able to create a submission that will list the transactions to be included in quarterly return without buying credits. However to generate a file you are able to upload to your tax authority you will need to buy one or more credits.
 
-= Q. Do I need to buy a credit to test a submission?
+= Q. Do I need to buy a credit to test the generation of an upload file?
 A. No, you are able to see a facsimile of the VAT MOSS return before you buy a credit.
 
 == Installation ==
