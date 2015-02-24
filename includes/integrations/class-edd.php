@@ -322,7 +322,7 @@ class MOSS_Integration_EDD extends MOSS_Integration_Base {
 
 				// Look up the correct set of class rates for this item
 				$rate_type = VAT_GROUP_CLASS_REDUCED;
-				if (VAT_STANDARD_CLASS !== $class)
+				if ( VAT_STANDARD_CLASS !== $class && function_exists('\lyquidity\edd_vat\get_vat_rates') )
 				{
 					$class_rates = \lyquidity\edd_vat\get_vat_rates($class);
 

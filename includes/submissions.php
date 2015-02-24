@@ -38,7 +38,10 @@ include VAT_MOSS_INCLUDES_DIR . 'admin/submit_submission.php';
 
 $locale = ( isset($_COOKIE['locale']) )
 	? $_COOKIE['locale']
-	: $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+	: (isset( $_SERVER['HTTP_ACCEPT_LANGUAGE'] )
+		? $_SERVER['HTTP_ACCEPT_LANGUAGE']
+		: 'en_GB'
+	  );
 setlocale(LC_ALL, $locale);
 
 function moss_submissions()

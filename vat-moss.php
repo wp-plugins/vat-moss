@@ -4,7 +4,7 @@
 Plugin Name: WordPress VAT MOSS Returns
 Plugin URI: http://www.lyquidity.com/wpstore/downloads/vat-moss/
 Description: Management and submission of VAT sales to EU consumers.
-Version: 1.0.1
+Version: 1.0.2
 Tested up to: 4.1
 Author: Lyquidity Solutions
 Author URI: http://www.lyqidity.com/wpstore/
@@ -108,7 +108,7 @@ class WordPressPlugin {
 		// The supported ajax calls. 'action' parameter should be 'vat_moss_action'
 		add_action( 'vat_moss_generate_summary_html',		array( $this, 'generate_summary_html' ) );
 		add_action( 'vat_moss_check_submission_license',	array( $this, 'check_submission_license' ) );
-		add_action( 'vat_moss_generate_report',				array( $this, 'generate_report' ) );
+//		add_action( 'vat_moss_generate_report',				array( $this, 'generate_report' ) );
 		add_action( 'vat_moss_download_report',				array( $this, 'download_report' ) );
 
 		// Allow the get_version request to obtain a response
@@ -463,7 +463,7 @@ class WordPressPlugin {
 			define('VAT_MOSS_REASON_SIMPLE_CHECK_FAILS',	 __('Simple check failed', 'vat_moss'));
 
 		if (!defined('VAT_MOSS_ERROR_VALIDATING_VAT_ID'))
-			define('VAT_MOSS_ERROR_VALIDATING_VAT_ID',	 __('An error occurred validating the VAT number supplied', 'edd_vat'));
+			define('VAT_MOSS_ERROR_VALIDATING_VAT_ID',	 __('An error occurred validating the VAT number supplied', 'vat_moss'));
 
 	}
 

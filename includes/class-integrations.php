@@ -382,7 +382,7 @@ class MOSS_WP_Integrations {
 
 				$euro_amount = $amount / $rates[$from_currency];
 			}
-error_log("$to_currency {$rates[$to_currency]}");
+
 			// Now from EUR to the base currency
 			return round( $euro_amount * $rates[$to_currency], 2 );
 		}

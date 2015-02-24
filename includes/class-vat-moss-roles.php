@@ -46,7 +46,7 @@ class MOSS_Roles {
 			'delete_posts'           => true
 		) );
 
-		add_role( 'moss_reviewer', __( 'MOSS Reviewer', 'edd' ), array(
+		add_role( 'moss_reviewer', __( 'MOSS Reviewer', 'vat_moss' ), array(
 		    'read'                   => true,
 		    'edit_posts'             => false,
 		    'delete_posts'           => false

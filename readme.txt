@@ -23,7 +23,7 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 	* Easy Digital Downloads or
 	* Woo Commerce
 
-**Create quarterly submissions**
+**Create quarterly or monthly submissions**
 
 	* Select the transactions to be included
 	* The plugin will only present sales to EU consumers so you cannot select invalid sales records

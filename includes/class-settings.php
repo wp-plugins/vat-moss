@@ -187,6 +187,12 @@ class MOSS_WP_Settings {
 						'desc' => '<p class="description">' . __( 'Enter your VAT number without country code.', 'vat_moss' ) . '</p>',
 						'type' => 'text'
 					),
+					'company_name' => array(
+						'name' => __( 'Company Name', 'vat_moss' ),
+						'desc' => '<p class="description">' . __( 'The name of your company (required for some upload files such as Cypress).', 'vat_moss' ) . '</p>',
+						'type' => 'text',
+						'std' => get_bloginfo( 'name' )
+					),
 					'submitter' => array(
 						'name' => __( 'Submitter\'s Name', 'vat_moss' ),
 						'desc' => '<p class="description">' . __( 'The default name of the submitter.', 'vat_moss' ) . '</p>',

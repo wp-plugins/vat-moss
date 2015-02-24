@@ -65,6 +65,7 @@ function delete_submission($id, $delete_post = true)
 		delete_post_meta( $id, 'submission_year' );
 		delete_post_meta( $id, 'mosssales' );
 		delete_post_meta( $id, 'output_format' );
+		delete_post_meta( $id, 'report' );
 	}
 
 	return true;

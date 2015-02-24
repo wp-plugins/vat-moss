@@ -206,13 +206,13 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 									</td>
 								</tr>
 								<tr>
-									<td scope="row"><b><?php _e( 'Total net value of selected lines', 'vat_ecsl' ); ?></b></td>
+									<td scope="row"><b><?php _e( 'Total net value of selected lines', 'vat_moss' ); ?></b></td>
 									<td>
 										<span><?php echo number_format( $totalnetvalue ? $totalnetvalue : 0, 2, $locale['decimal_point'], $locale['thousands_sep'] ); ?></span>
 									</td>
 								</tr>
 								<tr>
-									<td scope="row"><b><?php _e( 'Total tax value of selected lines', 'vat_ecsl' ); ?></b></td>
+									<td scope="row"><b><?php _e( 'Total tax value of selected lines', 'vat_moss' ); ?></b></td>
 									<td>
 										<span><?php echo number_format( $totaltaxvalue ? $totaltaxvalue : 0, 2, $locale['decimal_point'], $locale['thousands_sep'] ); ?></span>
 									</td>

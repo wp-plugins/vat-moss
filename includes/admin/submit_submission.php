@@ -87,6 +87,7 @@ function submit_submission($id)
 			$submission_period		= get_post_meta( $id, 'submission_period',	true );
 			$submission_year		= get_post_meta( $id, 'submission_year',	true );
 			$submission_key			= get_post_meta( $id, 'submission_key',		true );
+			$company_name			= get_company_name();
 			$currency				= get_default_currency();
 			$establishment_country	= get_establishment_country();
 			$output_format			= get_output_format();
@@ -94,6 +95,7 @@ function submit_submission($id)
 			$data = array(
 				'edd_action'			=> 'submit_moss',
 				'vrn'					=> $vrn,
+				'company_name'			=> $company_name,
 				'submitter' 			=> $submitter,
 				'email'					=> $email,
 				'submission_period'		=> $submission_period,
