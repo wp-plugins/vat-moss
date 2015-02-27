@@ -210,7 +210,7 @@ function perform_simple_check($taxid, &$out, $debug = false)
 
 	if (!$valid)
 	{
-		$out->message = VAT_ECSL_ERROR_VALIDATING_VAT_ID . ": " . VAT_ECSL_REASON_SIMPLE_CHECK_FAILS;
+		$out->message = VAT_MOSS_ERROR_VALIDATING_VAT_ID . ": " . VAT_MOSS_REASON_SIMPLE_CHECK_FAILS;
 		return $out->valid = false;
 	}
 
