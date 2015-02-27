@@ -4,7 +4,7 @@
 Plugin Name: WordPress VAT MOSS Returns
 Plugin URI: http://www.lyquidity.com/wpstore/downloads/vat-moss/
 Description: Management and submission of VAT sales to EU consumers.
-Version: 1.0.2
+Version: 1.0.3
 Tested up to: 4.1
 Author: Lyquidity Solutions
 Author URI: http://www.lyqidity.com/wpstore/
@@ -389,7 +389,7 @@ class WordPressPlugin {
 	{
 		try
 		{
-			$roles = new VAT_MOSS_Roles;
+			$roles = new MOSS_Roles;
 			$roles->remove_roles();
 			$roles->remove_caps();
 		}
@@ -427,7 +427,7 @@ class WordPressPlugin {
 		}
 
 		if ( ! defined( 'VAT_MOSS_VERSION' ) )
-			define( 'VAT_MOSS_VERSION', '1.0.2' );
+			define( 'VAT_MOSS_VERSION', '1.0.3' );
 
 		if ( ! defined( 'VAT_MOSS_VENDOR_ID' ) )
 			define( 'VAT_MOSS_VENDOR_ID', '7199' );
