@@ -11,6 +11,9 @@
 
 namespace lyquidity\vat_moss;
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * MOSS_Roles Class
  *

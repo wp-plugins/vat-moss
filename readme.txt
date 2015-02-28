@@ -85,6 +85,10 @@ Fixed a problem when deactivating
 
 Fixed a problem with an invalid constant name in vatidvalidator.php
 
+= 1.0.5 =
+
+Extra protections against malicious execution
+
 == Upgrade Notice ==
 
 Nothing here

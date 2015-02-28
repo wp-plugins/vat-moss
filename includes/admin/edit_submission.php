@@ -12,6 +12,9 @@
 
 namespace lyquidity\vat_moss;
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 function edit_submission($id)
 {
 	global $selected;

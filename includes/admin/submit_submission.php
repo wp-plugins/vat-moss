@@ -12,6 +12,9 @@
 
 namespace lyquidity\vat_moss;
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Sends a submission to HMRC and handles any errors
  *
