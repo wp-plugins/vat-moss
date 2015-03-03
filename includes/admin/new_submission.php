@@ -77,6 +77,8 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 
 	$submission = $submission_id ? get_post($submission_id) : null;
 	$post_title	= $submission_id ? $submission->post_title : '';
+
+	$test_mode = get_post_meta( $submission_id, 'test_mode', true );
 ?>
 
 	<style>
@@ -120,6 +122,19 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 <?php	} else { ?>
 										<input type="text" class="regular-text" id="moss_settings_title" name="moss_settings_title" value="<?php echo $post_title; ?>">
 <?php	} ?>
+									</td>
+								</tr>
+								<tr>
+									<td style="vertical-align: top;" scope="row"><span><b><?php _e( 'Test mode', 'vat_moss_saf' ); ?></b></span></td>
+									<td>
+<?php	if ($read_only) { ?>
+										<span><?php echo $test_mode ? "Yes" : "No"; ?></span>&nbsp;-&nbsp;
+										<input type="hidden" id="ecsl_settings_test_mode" value="<?php echo $test_mode; ?>">
+<?php	} else { ?>
+										<input type="checkbox" class="checkbox" id="test_mode" name="test_mode" <?php echo $test_mode ? "checked='on'" : ""; ?>">
+<?php	} ?>
+										<span><?php echo __( "Use the test mode to check the generation of an upload file.", 'vat_moss' ); ?></span>
+										<p style="margin-top: 0px; margin-bottom: 0px;"><?php echo __( "In test mode a license key is not required and an upload file will be generated but the sales values in the generated file will be zero.", 'vat_moss' ); ?></p>
 									</td>
 								</tr>
 								<tr>

@@ -200,7 +200,7 @@ function get_company_name()
 {
 	return vat_moss()->settings->get(
 		'company_name', 
-		get_blog_info( 'name' )
+		\get_bloginfo( 'name' )
 	);
 }
 

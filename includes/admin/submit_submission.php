@@ -38,6 +38,18 @@ function submit_submission($id)
 		return;		
 	}
 
+	$submission_key	= get_post_meta( $id, 'submission_key',		true );
+	$test_mode		= empty($submission_key)
+		? true
+		: get_post_meta( $id, 'test_mode',			true );
+
+	if (empty($submission_key) && !$test_mode)
+	{
+		echo "<div class='error'><p>" . __('No credit license key is available for this submission', 'vat_moss' ) . "</p></div>";
+		show_definitions();
+		return;		
+	}
+
 	$selected		= maybe_unserialize(get_post_meta($id, 'mosssales', true));
 	$moss_lines		= null;
 
@@ -89,7 +101,6 @@ function submit_submission($id)
 			$email					= get_post_meta( $id, 'email',				true );
 			$submission_period		= get_post_meta( $id, 'submission_period',	true );
 			$submission_year		= get_post_meta( $id, 'submission_year',	true );
-			$submission_key			= get_post_meta( $id, 'submission_key',		true );
 			$company_name			= get_company_name();
 			$currency				= get_default_currency();
 			$establishment_country	= get_establishment_country();
@@ -97,7 +108,9 @@ function submit_submission($id)
 
 			$data = array(
 				'edd_action'			=> 'submit_moss',
+				'url'					=> site_url(),
 				'vrn'					=> $vrn,
+				'test_mode'				=> $test_mode,
 				'company_name'			=> $company_name,
 				'submitter' 			=> $submitter,
 				'email'					=> $email,

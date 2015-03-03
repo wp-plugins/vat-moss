@@ -79,6 +79,7 @@ function save_submission()
 	}
 
 	// Grab the post information
+	$test_mode	= isset($_REQUEST['test_mode'])	? $_REQUEST['test_mode'] : 0;
 	$vrn		= isset($_REQUEST['moss_settings_vat_number'])	? $_REQUEST['moss_settings_vat_number']	: vat_moss()->settings->get('vat_number');
 	$submitter	= isset($_REQUEST['moss_settings_submitter'])	? $_REQUEST['moss_settings_submitter']	: vat_moss()->settings->get('submitter');
 	$email		= isset($_REQUEST['moss_settings_email'])		? $_REQUEST['moss_settings_email']		: vat_moss()->settings->get('email');
@@ -123,6 +124,11 @@ function save_submission()
 			 )
 		);
 	}
+
+	if ($test_mode)
+		update_post_meta( $submission_id, 'test_mode', 1 );
+	else
+		delete_post_meta( $submission_id, 'test_mode' );
 
 	update_post_meta( $submission_id, 'vat_number',			$vrn				);
 	update_post_meta( $submission_id, 'submitter', 			$submitter			);
