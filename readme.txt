@@ -5,7 +5,7 @@ Contributors: bseddon
 Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
 Requires at least: 3.9.2
 Tested up to: 4.1
-Stable Tag: 1.0.7
+Stable Tag: 1.0.9
 License: GNU Version 2 or Any Later Version
 
 Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
@@ -100,6 +100,10 @@ Added the ability to test an upload file generation.  The file will be created b
 = 1.0.8 =
 
 Changes to address problems with translatability
+
+= 1.0.9 =
+
+Added Finnish translation thanks to Ahri (www.swratkaisut.com)
 
 == Upgrade Notice ==
 
