@@ -26,7 +26,7 @@ class MOSS_Integration_Dummy extends MOSS_Integration_Base {
 	public function init() {
 
 		$this->source = 'dummy';
-		$this->name = 'Dummy (Lyquidity Solutions)';
+		$this->name =  __( 'Dummy (Lyquidity Solutions)', 'vat_moss' );
 		$instance = $this;
 		add_action( 'moss_integration_instance', function( $instance_array ) use($instance)
 		{

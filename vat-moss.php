@@ -4,7 +4,7 @@
 Plugin Name: WordPress VAT MOSS Returns
 Plugin URI: http://www.lyquidity.com/wpstore/downloads/vat-moss/
 Description: Management and submission of VAT sales to EU consumers.
-Version: 1.0.7
+Version: 1.0.8
 Tested up to: 4.1
 Author: Lyquidity Solutions
 Author URI: http://www.lyqidity.com/wpstore/
@@ -427,13 +427,13 @@ class WordPressPlugin {
 		}
 
 		if ( ! defined( 'VAT_MOSS_VERSION' ) )
-			define( 'VAT_MOSS_VERSION', '1.0.7' );
+			define( 'VAT_MOSS_VERSION', '1.0.8' );
 
 		if ( ! defined( 'VAT_MOSS_WORDPRESS_COMPATIBILITY' ) )
 			define( 'VAT_MOSS_WORDPRESS_COMPATIBILITY', '4.1' );
 
 		if ( ! defined( 'VAT_MOSS_STORE_API_URL' ) )
-			define( 'VAT_MOSS_STORE_API_URL', 'https://www.lyquidity.com/wpstore/' );
+			define( 'VAT_MOSS_STORE_API_URL', 'https://www.lyquidity.com/wordpresstest/' );
 
 		if ( ! defined( 'VAT_MOSS_PRODUCT_NAME' ) )
 			define( 'VAT_MOSS_PRODUCT_NAME', 'WP VAT MOSS Management' );
@@ -512,7 +512,7 @@ class WordPressPlugin {
 		require_once VAT_MOSS_INCLUDES_DIR . 'settings.php';
 		require_once VAT_MOSS_INCLUDES_DIR . 'vatidvalidator.php';
 		require_once(VAT_MOSS_INCLUDES_DIR . 'class-html-elements.php');
-		// require_once(VAT_MOSS_INCLUDES_DIR . 'meta-box.php');
+//		require_once(VAT_MOSS_INCLUDES_DIR . 'meta-box.php');
 
 		$this->settings = new MOSS_WP_Settings;
 		$this->integrations = new MOSS_WP_Integrations;

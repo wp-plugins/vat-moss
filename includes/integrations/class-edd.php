@@ -26,7 +26,7 @@ class MOSS_Integration_EDD extends MOSS_Integration_Base {
 	public function init() {
 
 		$this->source = 'edd';
-		$this->name = 'Easy Digital Downloads';
+		$this->name = __( 'Easy Digital Downloads', 'vat_moss' );
 		$this->post_type = 'download';
 		$instance = $this;
 		add_action( 'moss_integration_instance', function( $instance_array ) use($instance)

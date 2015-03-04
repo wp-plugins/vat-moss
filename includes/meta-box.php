@@ -2,7 +2,7 @@
 
 /*
  * Part of: MOSS 
- * @Description: Implements a metabox for product definition posts so the site owner is able to select the indicator type for the product.
+ * @Description: Implements a metabox for product definition posts so the site owner is able to select the rate_type type for the product.
  * @Version: 1.0.1
  * @Author: Bill Seddon
  * @Author URI: http://www.lyqidity.com
@@ -16,16 +16,17 @@ namespace lyquidity\vat_moss;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Returns VAT indicator to use
+ * Returns VAT rate_type to use
  *
  */
-function vat_indicator_to_use($postID)
+function vat_rate_type_to_use($postID)
 {
-	$indicator = get_post_meta( $postID, '_moss_indicator', true );
-	if (empty($indicator) && $indicator !== '0')
-		$indicator = '3';
-	return $indicator;
+	$rate_type = get_post_meta( $postID, '_moss_rate_type', true );
+	if ( empty($rate_type) || ($rate_type !== 'reduced' && $rate_type != 'standard') )
+		$rate_type = 'reduced';
+	return $rate_type;
 }
+
 /**
  * Add select VAT rates class meta box
  *
@@ -38,7 +39,7 @@ function register_moss_meta_box() {
 
 	foreach($post_types as $key => $post_type)
 	{
-		add_meta_box( 'vat_moss_indicator_box', __( 'VAT MOSS type indicator', 'vat_moss' ), '\lyquidity\vat_moss\render_indicator_meta_box', $post_type, 'side', 'core' );
+		add_meta_box( 'vat_moss_rate_type_box', __( 'VAT MOSS Rate Type', 'vat_moss' ), '\lyquidity\vat_moss\render_rate_type_meta_box', $post_type, 'side', 'core' );
 	}
 }
 add_action( 'add_meta_boxes', '\lyquidity\vat_moss\register_moss_meta_box', 90 );
@@ -48,26 +49,26 @@ add_action( 'add_meta_boxes', '\lyquidity\vat_moss\register_moss_meta_box', 90 )
  *
  * @since 1.4.0
  */
-function render_indicator_meta_box()
+function render_rate_type_meta_box()
 {
 	global $post;
 
 	// Use nonce for verification
 	echo '<input type="hidden" name="vat_moss_meta_box_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
-	$indicator = vat_indicator_to_use( $post->ID);
+	$rate_type = vat_rate_type_to_use( $post->ID);
 
 	echo vat_moss()->html->select( array(
-		'options'          => array( '0' => __( 'Goods', 'vat_moss' ), '2' => 'Triangulation', '3' => 'Service' ),
-		'name'             => 'vat_moss_indicator',
-		'selected'         => $indicator,
+		'options'          => array( 'standard' => __( 'Standard', 'vat_moss' ), 'reduced' => __( 'Reduced', 'vat_moss' ) ),
+		'name'             => 'vat_moss_rate_type',
+		'selected'         => $rate_type,
 		'show_option_all'  => false,
 		'show_option_none' => false,
-		'class'            => 'moss-select escl-vat-class',
+		'class'            => 'moss-select moss-vat-class',
 		'select2' => true
 	) );
 
-	$msg = __('Select the VAT indicator to use for this product when purchases are reported in MOSS submission.', 'vat_moss');
+	$msg = __('Select the VAT rate_type to use for this product when purchases are reported in MOSS submission.', 'vat_moss');
 	echo "<p>$msg</p>";
 
 }
@@ -77,7 +78,7 @@ function render_indicator_meta_box()
  *
  * @since 1.4.0
  */
-function indicator_meta_box_save( $post_id ) {
+function rate_type_meta_box_save( $post_id ) {
 
 	global $post;
 
@@ -98,11 +99,11 @@ function indicator_meta_box_save( $post_id ) {
 		return $post_id;
 	}
 
-	if ( !isset( $_POST['vat_moss_indicator'] ) ) 
+	if ( !isset( $_POST['vat_moss_rate_type'] ) ) 
 		return $post_id;
 
-	update_post_meta( $post_id, '_moss_indicator', $_POST['vat_moss_indicator'] );
+	update_post_meta( $post_id, '_moss_rate_type', $_POST['vat_moss_rate_type'] );
 }
-add_action( 'save_post', '\lyquidity\vat_moss\indicator_meta_box_save' );
+add_action( 'save_post', '\lyquidity\vat_moss\rate_type_meta_box_save' );
 
 ?>

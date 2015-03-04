@@ -95,7 +95,11 @@ Small change to prevent js and css files being added to the front end
 
 = 1.0.7 =
 
-Added the ability to test an upload file generation.  The file will be created but the values will be zero.
+Added the ability to test an upload file generation.  The file will be created but the values will be zero
+
+= 1.0.8 =
+
+Changes to address problems with translatability
 
 == Upgrade Notice ==
 

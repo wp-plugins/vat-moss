@@ -164,8 +164,8 @@ class MOSS_Sales_List extends \WP_List_Table {
 			$columns['cb'] = 'All';
 
 		$columns = $columns + array(
-			'id'				=> __( 'ID' ),
-			'purchase_key'		=> __( 'Purchase ID' ),
+			'id'				=> __( 'ID', 'vat_moss' ),
+			'purchase_key'		=> __( 'Purchase ID', 'vat_moss' ),
 			'date'				=> __( 'Date', 'vat_moss' ),
 			'source'    		=> __( 'Source', 'vat_moss' ),
 			'country_code'		=> __( 'Country', 'vat_moss' ),

@@ -26,7 +26,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 	public function init() {
 
 		$this->source = 'wooc';
-		$this->name = 'Woo Commerce';
+		$this->name = __( 'WooCommerce', 'vat_moss' );
 		$this->post_type = 'product';
 
 		$instance = $this;

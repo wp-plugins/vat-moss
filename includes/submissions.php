@@ -193,6 +193,9 @@ function show_submissions( $moss_lines = false )
 {
 		$submissions_list = new MOSS_Submissions();
 		$submissions_list->prepare_items();
+		$msg10 = __( 'To find information to help you use this plug-in', 'vat_moss' );
+		$msg11 = __( 'visit the plug-in page on our site', 'vat_moss' );
+		$msg2 = __( 'Please note that to ensure we are able to process any submissions you make, to verify any completed submissions or to be able to answer questions about any submissions you make that fail, details of your submission will be held on our site.', 'vat_moss' );
 ?>
 		<div class="wrap">
 			<a href='?page=moss-submissions' class='button secondary' style='float: right; margin-top: 10px; margin-right: 10px;'><?php _e('Refresh', 'vat_moss'); ?></a>
@@ -200,8 +203,8 @@ function show_submissions( $moss_lines = false )
 				<a href="?page=moss-submissions&action=new_submission" class="add-new-h2"><?php _e( 'Add New', 'vat_moss' ); ?></a>
 			</h2>
 
-			<p>To find information to help you use this plug-in <a href="http://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/">visit the plug-in page on our site</a>.</p>
-			<p>Please note that to ensure we are able to process any submissions you make, to verify any completed submissions or to be able to answer questions about any submissions you make that fail, details of your submission will be held on our site.</p>
+			<p><?php echo $msg10; ?><a href="http://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/"><?php echo $msg11; ?></a>.</p>
+			<p><?php echo $msg2;  ?></p>
 <?php
 			if(function_exists('wincache_ucache_get') && ini_get('wincache.ucenabled'))
 			{

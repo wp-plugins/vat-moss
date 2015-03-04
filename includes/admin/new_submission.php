@@ -107,7 +107,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 
 			<div id="poststuff" >
 				<div id="moss_submission_header" class="postbox ">
-					<h3 class="hndle ui-sortable-handle"><span>Details</span></h3>
+					<h3 class="hndle ui-sortable-handle"><span><?php _e( 'Details', 'vat_moss' ); ?></span></h3>
 					<div class="inside">
 						<table width="100%" class="moss-submission-header-details">
 							<colgroup>
@@ -125,7 +125,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 									</td>
 								</tr>
 								<tr>
-									<td style="vertical-align: top;" scope="row"><span><b><?php _e( 'Test mode', 'vat_moss_saf' ); ?></b></span></td>
+									<td style="vertical-align: top;" scope="row"><span><b><?php _e( 'Test mode', 'vat_moss' ); ?></b></span></td>
 									<td>
 <?php	if ($read_only) { ?>
 										<span><?php echo $test_mode ? "Yes" : "No"; ?></span>&nbsp;-&nbsp;
@@ -151,7 +151,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 								<tr>
 									<td></td>
 									<td>
-										<button id="check_moss_license" submission_key_id="submission_key" value="Check License" class="button button-primary" >Check License</button>
+										<button id="check_moss_license" submission_key_id="submission_key" value="<?php _e( 'Check License', 'vat_moss' ); ?>" class="button button-primary" ><?php _e( 'Check License', 'vat_moss' ); ?></button>
 										<img src="<?php echo VAT_MOSS_PLUGIN_URL . "images/loading.gif" ?>" id="license-checking" style="display:none; margin-left: 10px; margin-top: 8px;" />
 									</td>
 								</tr>
@@ -182,7 +182,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 								</tr>
 								<tr>
 									<td></td>
-									<td>The MS ID is the id issued by your member state tax authority and may be the same as your VAT/TVA number.</td>
+									<td><?php _e( 'The MS ID is the id issued by your member state tax authority and may be the same as your VAT/TVA number.', 'vat_moss' ); ?></td>
 								</tr>
 								<tr>
 									<td scope="row"><b><?php _e( 'Submitters Name', 'vat_moss' ); ?></b></td>
