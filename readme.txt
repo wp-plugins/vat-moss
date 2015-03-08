@@ -110,7 +110,7 @@ Added Finnish translation thanks to Ahri (www.swratkaisut.com)
 
 = 1.0.10 =
 
-Added support for the free WooCommerce VAT plugin by Aelio
+Added support for the free WooCommerce VAT plugin by Aelia
 Added an option to include non-virtual products (defaults to virtual only)
 Added extra warnings if WooCommerce or EDD and a corresponding VAT compliance plugin is not installed and activated
 
