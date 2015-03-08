@@ -204,4 +204,9 @@ function get_company_name()
 	);
 }
 
+function use_all_products()
+{
+	return vat_moss()->settings->get( 'all_products', false );
+}
+
 ?>

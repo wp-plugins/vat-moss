@@ -236,6 +236,11 @@ class MOSS_WP_Settings {
 						'options' => supported_formats(),
 						'select2' => true,
 						'placeholder' => __( 'Select a format', 'vat_moss' )
+					),
+					'all_products' => array(
+						'name' => __( 'All products', 'vat_moss' ),
+						'desc' => __( '(WooCommerce only) False if only virtual products should be used; True if all products should be used.', 'vat_moss' ),
+						'type' => 'checkbox'
 					)
 				)
 			),

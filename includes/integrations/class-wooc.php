@@ -122,9 +122,11 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 		if( $payments->posts )
 		{
 			$eu_states = array_flip( WordPressPlugin::$eu_states );
+			$use_all_products = use_all_products();
 
 			foreach( $payments->posts as $payment_id ) {
 
+				$eu_vat_compliance	= false;
 				$purchase_key		= get_post_meta( $payment_id, '_order_key',					true );
 				$vrn				= get_post_meta( $payment_id, 'VAT Number',					true );
 				$date				= get_post_meta( $payment_id, '_completed_date',			true );
@@ -133,29 +135,64 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 				$billing_last_name	= get_post_meta( $payment_id, '_billing_last_name', 		true );
 				$order_total		= get_post_meta( $payment_id, '_order_total',				true );
 				$vat_paid			= get_post_meta( $payment_id, 'vat_compliance_vat_paid',	true );
-				$vat_paid			= maybe_unserialize( $vat_paid );
-				$country_info		= get_post_meta( $payment_id, 'vat_compliance_country_info', true );
-				$country_info		= maybe_unserialize( $country_info );
-				$country_code		= $country_info['taxable_address'][0];
-				$currency_code		= $vat_paid['currency'];
+				if ($vat_paid)
+				{
+					$eu_vat_compliance = true;
 
-				/**
-					"by_rates" = array(
-						[5] => array(
-							"items_total" => 2.736,
-							"shipping_total" => 0,
-							"rate" => "19.0000",
-							"name" => "VAT (19%)"
-						),
-						[31] => array(
-							"items_total" => 0.9,
-							"shipping_total" => 0,
-							"rate" => "10.0000",
-							"name" => "Dummy VAT"
+					// This is evidence from the eu-vat-compliance plugin
+					$vat_paid		= maybe_unserialize( $vat_paid );
+					$country_info	= get_post_meta( $payment_id, 'vat_compliance_country_info', true );
+				
+					$country_info	= maybe_unserialize( $country_info );
+					$country_code	= $country_info['taxable_address'][0];
+					$currency_code	= $vat_paid['currency'];
+
+					/**
+						"by_rates" = array(
+							[5] => array(
+								"items_total" => 2.736,
+								"shipping_total" => 0,
+								"rate" => "19.0000",
+								"name" => "VAT (19%)"
+							),
+							[31] => array(
+								"items_total" => 0.9,
+								"shipping_total" => 0,
+								"rate" => "10.0000",
+								"name" => "Dummy VAT"
+							)
 						)
-					)
-				 */
-				$rates				= $vat_paid['by_rates'];
+					 */
+					$rates			= $vat_paid['by_rates'];
+				}
+				else
+				{
+					// Is the EUVA plugin being used?
+					$euva_evidence	= get_post_meta( $payment_id, '_eu_vat_evidence',	true );
+					if (!$euva_evidence)
+						continue;
+
+					$euva_data		= get_post_meta( $payment_id, '_eu_vat_data',		true );
+					$country_code	= $euva_evidence['location']['billing_country'];
+					$currency_code	= $euva_data['vat_currency'];
+
+					/**
+						"taxes" = array(
+							[72] => array(
+								"label" => "20% GB VAT",
+								"vat_rate" => "20.0000",
+								"country" => "GB",
+								"tax_rate_class" => "reduced-rate",
+								"amounts" = array(
+									"items_total" => 6,
+									"shipping_total" => 0
+								)
+							)
+						)
+					 */
+
+					$rates			= $euva_data['taxes'];
+				}
 
 				if (isset($eu_states[$establishment_country])) // A union
 				{
@@ -165,6 +202,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 				}
 
 				$order = wc_get_order( $payment_id );
+// error_log(print_r($order,true));
 				$line_items = $order->get_items( 'line_item' );
 				$index			= 0;
 
@@ -182,9 +220,11 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 						_line_tax
 						_line_tax_data
 					 */
-
 					$item_meta = $order->get_item_meta( $item_id );
+
 					if ( array_sum($item_meta['_line_tax']) == 0 ) continue;
+					$product    = wc_get_product( $item_meta['_product_id'][0] );
+					if (!$use_all_products && !$product->is_virtual()) continue;
 
 					$tax_data = maybe_unserialize( $item_meta['_line_tax_data'][0] );
 
@@ -207,7 +247,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 					$rate_index = key($tax_data['total']);
 
 					// What's the rate for this sale?
-					$rate = round( isset($rates[$rate_index]) ? $rates[$rate_index]['rate'] : 20, 3 );
+					$rate = round( isset($rates[$rate_index]) ? $rates[$rate_index][$eu_vat_compliance ? 'rate' : 'vat_rate'] : 20, 3 );
 					$rate /= 100;
 
 					/*
@@ -232,7 +272,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 					$vat_payment['purchase_key']	= $purchase_key;
 					$vat_payment['date']			= $date;
 					$vat_payment['submission_id']	= $submission_id;
-					$vat_payment['net']				= round( apply_filters( 'moss_get_net_transaction_amount', array_sum($item_meta['_line_total']) - array_sum($item_meta['_line_tax']), $order_total, $payment_id), 2 );
+					$vat_payment['net']				= round( apply_filters( 'moss_get_net_transaction_amount', array_sum($item_meta['_line_total']), $order_total, $payment_id), 2 );
 					$vat_payment['tax']				= round( array_sum($item_meta['_line_tax']), 2 );
 					$vat_payment['vat_rate']		= $rate;
 					$vat_payment['vat_type']		= isset( $item_meta['_tax_class'] ) && count( $item_meta['_tax_class'] ) > 0 && $item_meta['_tax_class'][0] ? $item_meta['_tax_class'][0] : 'reduced';
@@ -329,36 +369,72 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 
 		foreach( $source_ids as $key => $payment_id ) {
 		
+			$eu_vat_compliance	= false;
+
 			$purchase_key		= get_post_meta( $payment_id, '_order_key',					true );
 			$vrn				= get_post_meta( $payment_id, 'VAT Number',					true );
 			$date				= get_post_meta( $payment_id, '_completed_date',			true );
 			$submission_id		= get_post_meta( $payment_id, 'moss_submission_id', 		true );
 			$order_total		= get_post_meta( $payment_id, '_order_total',				true );
 			$vat_paid			= get_post_meta( $payment_id, 'vat_compliance_vat_paid',	true );
-			$vat_paid			= maybe_unserialize( $vat_paid );
-			$country_info		= get_post_meta( $payment_id, 'vat_compliance_country_info', true );
-			$country_info		= maybe_unserialize( $country_info );
-			$country_code		= $country_info['taxable_address'][0];
-			$currency_code		= $vat_paid['currency'];
 
-			/**
-				"by_rates" = array(
-					[5] => array(
-						"items_total" => 2.736,
-						"shipping_total" => 0,
-						"rate" => "19.0000",
-						"name" => "VAT (19%)"
-					),
-					[31] => array(
-						"items_total" => 0.9,
-						"shipping_total" => 0,
-						"rate" => "10.0000",
-						"name" => "Dummy VAT"
+			if ($vat_paid)
+			{
+				$eu_vat_compliance = true;
+
+				// This is evidence from the eu-vat-compliance plugin
+				$vat_paid		= maybe_unserialize( $vat_paid );
+				$country_info	= get_post_meta( $payment_id, 'vat_compliance_country_info', true );
+				$country_info	= maybe_unserialize( $country_info );
+				$country_code	= $country_info['taxable_address'][0];
+				$currency_code	= $vat_paid['currency'];
+
+				/**
+					"by_rates" = array(
+						[5] => array(
+							"items_total" => 2.736,
+							"shipping_total" => 0,
+							"rate" => "19.0000",
+							"name" => "VAT (19%)"
+						),
+						[31] => array(
+							"items_total" => 0.9,
+							"shipping_total" => 0,
+							"rate" => "10.0000",
+							"name" => "Dummy VAT"
+						)
 					)
-				)
-			 */
+				 */
 
-			$rates				= $vat_paid['by_rates'];
+				$rates				= $vat_paid['by_rates'];
+			}
+			else
+			{
+				// Is the EUVA plugin being used?
+				$euva_evidence	= get_post_meta( $payment_id, '_eu_vat_evidence',	true );
+				if (!$euva_evidence) continue;
+				
+				$euva_data		= get_post_meta( $payment_id, '_eu_vat_data',		true );
+				$country_code	= $euva_evidence['location']['billing_country'];
+				$currency_code	= $euva_data['vat_currency'];
+
+				/**
+					"taxes" = array(
+						[72] => array(
+							"label" => "20% GB VAT",
+							"vat_rate" => "20.0000",
+							"country" => "GB",
+							"tax_rate_class" => "reduced-rate",
+							"amounts" = array(
+								"items_total" => 6,
+								"shipping_total" => 0
+							)
+						)
+					)
+				 */
+
+				$rates			= $euva_data['taxes'];
+			}
 
 			$order = wc_get_order( $payment_id );
 			$line_items = $order->get_items( 'line_item' );
@@ -405,7 +481,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 				$rate_index = key($tax_data['total']);
 
 				// What's the rate for this sale?
-				$rate = round( isset($rates[$rate_index]) ? $rates[$rate_index]['rate'] : 20, 3 );
+				$rate = round( isset($rates[$rate_index]) ? $rates[$rate_index][$eu_vat_compliance ? 'rate' : 'vat_rate'] : 20, 3 );
 				$rate /= 100;
 
 				/*
@@ -429,7 +505,7 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 				$vat_payment['purchase_key']	= $purchase_key;
 				$vat_payment['date']			= $date;
 				$vat_payment['submission_id']	= $submission_id;
-				$vat_payment['net']				= round( apply_filters( 'moss_get_net_transaction_amount', array_sum($item_meta['_line_total']) - array_sum($item_meta['_line_tax']), $order_total, $payment_id), 2 );
+				$vat_payment['net']				= round( apply_filters( 'moss_get_net_transaction_amount', array_sum($item_meta['_line_total']), $order_total, $payment_id), 2 );
 				$vat_payment['tax']				= round( array_sum($item_meta['_line_tax']), 2 );
 				$vat_payment['vat_rate']		= $rate;
 				$vat_payment['vat_type']		= isset( $item_meta['_tax_class'] ) && count( $item_meta['_tax_class'] ) > 0 && $item_meta['_tax_class'][0] ? $item_meta['_tax_class'][0] : 'reduced';

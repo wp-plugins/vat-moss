@@ -5,14 +5,15 @@ Contributors: bseddon
 Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
 Requires at least: 3.9.2
 Tested up to: 4.1
-Stable Tag: 1.0.9
+Stable Tag: 1.0.10
 License: GNU Version 2 or Any Later Version
 
 Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
 
 == Description ==
 
-Each quarter businesses selling to EU consumers must submit a MOSS report to one of the EU tax authorities, such as HMRC, to document sales to consumers in other EU member states. This plug-in integrates with Easy Digital Downloads and/or Woo Commerce so it is able retrieve relevant sales records from which to create the quarterly return.
+Each quarter businesses selling to EU consumers must submit a MOSS report to one of the EU tax authorities, such as HMRC, to document sales to consumers in other EU member states. 
+This plug-in integrates with Easy Digital Downloads and/or Woo Commerce so it is able retrieve relevant sales records from which to create the quarterly return.
 
 If you are the owner of a UK-based shop you may also be interested in the plug-in that generates and submits the [quarterly EC Sales List](https://wordpress.org/plugins/vat-ecsl) (VAT101).
 
@@ -28,12 +29,12 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 	* Select the transactions to be included
 	* The plugin will only present sales to EU consumers so you cannot select invalid sales records
 	* Specify the quarter for the submission
-	* Review the MOSS report and then generate an electronic upload files in a format suitable the Austrian, Belgian, 
-	  Estonian, German, Lithuanian, Luxembourg, Polish and UK tax authorities (to be expanded as information and tax authority 
+	* Review the MOSS report and then generate an electronic upload files in a format suitable the Austrian, Belgian, Cypriot,
+	  Danish, Estonian, German, Latvian, Lithuanian, Luxembourg, Polish and UK tax authorities (to be expanded as information and tax authority 
 	  services becomes available)
-	* Coming soon: Cypriot, Danish, Irish and Dutch
+	* Coming soon: Irish and Dutch
 	* Coming later: France, Italy
-	* The Spanish and Slovakian tax authorities do not intend to support electronic file uploads
+	* The Greek, Spanish and Slovakian tax authorities do not intend to support electronic file uploads
 
 **Videos**
 
@@ -57,7 +58,9 @@ Install the plugin in the normal way then select the settings option option from
 
 **Requires**
 
-This plugin requires that you capture VAT information in a supported format such as the format created by the [Lyquidity VAT plugin for EDD](http://www.lyquidity.com/wpstore/ "VAT for EDD") or the [Woo Commerce EU VAT Compliance plugin](https://www.simbahosting.co.uk/s3/product/woocommerce-eu-vat-compliance/ "Premium version").
+This plugin requires that you capture VAT information in a supported format such as the format created by the [Lyquidity VAT plugin for EDD](http://www.lyquidity.com/wpstore/ "VAT for EDD") 
+or the [WooCommerce EU VAT Compliance plugin "Premium version"](https://www.simbahosting.co.uk/s3/product/woocommerce-eu-vat-compliance/) 
+or the [WooCommerce EU VAT Assistant](https://wordpress.org/plugins/woocommerce-eu-vat-assistant/).
 
 == Screenshots ==
 
@@ -104,6 +107,12 @@ Changes to address problems with translatability
 = 1.0.9 =
 
 Added Finnish translation thanks to Ahri (www.swratkaisut.com)
+
+= 1.0.10 =
+
+Added support for the free WooCommerce VAT plugin by Aelio
+Added an option to include non-virtual products (defaults to virtual only)
+Added extra warnings if WooCommerce or EDD and a corresponding VAT compliance plugin is not installed and activated
 
 == Upgrade Notice ==
 

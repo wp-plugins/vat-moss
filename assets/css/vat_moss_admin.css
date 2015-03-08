@@ -51,8 +51,17 @@ div#moss_summary {
 
 .wp-list-table.mosssales th.column-vat_rate  a,
 .wp-list-table.mosssales th.column-net  a,
-.wp-list-table.mosssales th.column-tax  a{
+.wp-list-table.mosssales th.column-tax  a {
 	float: right;
+}
+
+.wp-list-table.mosssales th {
+	padding: 10px 2px;
+}
+
+.wp-list-table.mosssales th.sortable a,
+.wp-list-table.mosssales th.sorted a {
+	padding: 7px 2px 8px 4px;
 }
 
 
