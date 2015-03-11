@@ -77,17 +77,32 @@ class MOSS_Integration_WOOC extends MOSS_Integration_Base {
 			'compare'	=> '>',
 			'type'		=> 'DECIMAL'
 		);
-		
+
 		$meta_query[] = array(
-			'relation' => 'OR',
+			'relation' => 'AND',
 			array(
-				'key'		=> 'VAT Number',
-				'compare'	=> 'NOT EXISTS'
+				'relation' => 'OR',
+				array(
+					'key'		=> 'VAT Number',
+					'compare'	=> 'NOT EXISTS'
+				),
+				array(
+					'key'		=> 'Valid EU VAT Number',
+					'value'		=> 'false',
+					'compare'	=> '='
+				)
 			),
 			array(
-				'key'		=> 'Valid EU VAT Number',
-				'value'		=> 'false',
-				'compare'	=> '='
+				'relation' => 'OR',
+				array(
+					'key'		=> 'vat_number',
+					'compare'	=> 'NOT EXISTS'
+				),
+				array(
+					'key'		=> 'vat_number',
+					'value'		=> '',
+					'compare'	=> '='
+				)
 			)
 		);
 		

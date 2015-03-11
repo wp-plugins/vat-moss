@@ -2,10 +2,10 @@
 Author URI: http://www.lyquidity.com/
 Plugin URI: http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/
 Contributors: bseddon
-Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss
+Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss, WooCommerce
 Requires at least: 3.9.2
 Tested up to: 4.1
-Stable Tag: 1.0.10
+Stable Tag: 1.0.11
 License: GNU Version 2 or Any Later Version
 
 Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
@@ -113,6 +113,14 @@ Added Finnish translation thanks to Ahri (www.swratkaisut.com)
 Added support for the free WooCommerce VAT plugin by Aelia
 Added an option to include non-virtual products (defaults to virtual only)
 Added extra warnings if WooCommerce or EDD and a corresponding VAT compliance plugin is not installed and activated
+
+= 1.0.10 =
+
+Fixed transaction selection to correctly handle the existence of a VAT number
+
+= 1.0.11 =
+
+Change to readme.txt
 
 == Upgrade Notice ==
 

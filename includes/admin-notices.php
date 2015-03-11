@@ -28,7 +28,7 @@ function admin_notices() {
 	$integrations = MOSS_WP_Integrations::get_integrations_list();
 	if (isset( $integrations['wooc'] ) && !class_exists('Aelia\WC\EU_VAT_Assistant\WC_Aelia_EU_VAT_Assistant'))
 	{
-		echo "<div class='error'><p>" . __("The Aelia EU VAT Assistant or the Simba EU VAT Compliance plug-in must be installed to use the WooCommerce integration.", "vat_moss") . "</p></div>";				
+		echo "<div class='error'><p>" . __("The Aelia EU VAT Assistant or the Simba EU VAT Compliance (Premium) plug-in must be installed to use the WooCommerce integration.", "vat_moss") . "</p></div>";				
 	}
 
 	if (isset( $integrations['edd'] ) && !class_exists('lyquidity\edd_vat\WordPressPlugin'))
