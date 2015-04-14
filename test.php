@@ -1,5 +1,29 @@
 <?php 
 
+ini_set('display_errors', true);
+
+//setup global $_SERVER variables to keep WP from trying to redirect
+$_SERVER = array(
+  "HTTP_HOST" => "www.wproute.com",
+  "SERVER_NAME" => "www.wproute.com",
+  "REQUEST_METHOD" => "GET",
+  "REMOTE_ADDR" => '127.0.0.1',
+  "HTTP_ACCEPT_LANGUAGE" => "en",
+  "REQUEST_URI" => "/wp-admin/admin.php?page=moss-submissions&action=new_submission"
+);
+//require the WP bootstrap
+require_once(dirname(__FILE__).'/../../../wp-load.php');
+
+$to_currency = "EUR";
+
+// \lyquidity\vat_moss\vat_moss()->integrations->init_euro_rates();
+echo \lyquidity\vat_moss\vat_moss()->integrations->translate_amount( 10, "2015-02-17", "EUR", "GBP", 2056) . "\n";
+echo \lyquidity\vat_moss\vat_moss()->integrations->translate_amount(150, "2015-02-17", "USD", $to_currency) . "\n";
+echo \lyquidity\vat_moss\vat_moss()->integrations->translate_amount(150, "2014-12-12", "USD", $to_currency) . "\n";
+echo \lyquidity\vat_moss\vat_moss()->integrations->translate_amount( 30, "2014-12-12", "EUR", $to_currency) . "\n";
+
+return;
+
 $vat_payments = array(
 
 	array(

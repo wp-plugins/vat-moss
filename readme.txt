@@ -1,11 +1,11 @@
 === VAT MOSS Returns ===
-Author URI: http://www.lyquidity.com/
-Plugin URI: http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/
+Author URI: http://www.wproute.com/
+Plugin URI: http://www.wproute.com/wp-vat-moss-submissions/
 Contributors: bseddon
 Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss, WooCommerce
 Requires at least: 3.9.2
 Tested up to: 4.1
-Stable Tag: 1.0.13
+Stable Tag: 1.0.14
 License: GNU Version 2 or Any Later Version
 
 Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
@@ -38,11 +38,11 @@ If you are the owner of a UK-based shop you may also be interested in the plug-i
 
 **Videos**
 
-	[Watch videos](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Videos showing the plug-in working") showing how to setup the plugin, create a report definition and generate an output file
+	[Watch videos](https://www.wproute.com/wordpress-vat-moss-reporting/ "Videos showing the plug-in working") showing how to setup the plugin, create a report definition and generate an output file
 	
 **Generate a file you can upload to your tax authority**
 
-[Buy credits](https://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/ "Buy credits") to generate a file the format required by your tax authority.
+[Buy credits](https://www.wproute.com/wordpress-vat-moss-reporting/ "Buy credits") to generate a file the format required by your tax authority.
 
 == Frequently Asked Questions ==
 
@@ -54,11 +54,11 @@ A. No, you are able to see a facsimile of the VAT MOSS return before you buy a c
 
 == Installation ==
 
-Install the plugin in the normal way then select the settings option option from the VAT MOSS menu added to the main WordPress menu.  Detailed [configuration and use instructions](http://www.lyquidity.com/wpstore/wp-vat-moss-submissions/) can be found on our web site.
+Install the plugin in the normal way then select the settings option option from the VAT MOSS menu added to the main WordPress menu.  Detailed [configuration and use instructions](http://www.wproute.com/wp-vat-moss-submissions/) can be found on our web site.
 
 **Requires**
 
-This plugin requires that you capture VAT information in a supported format such as the format created by the [Lyquidity VAT plugin for EDD](http://www.lyquidity.com/wpstore/ "VAT for EDD") 
+This plugin requires that you capture VAT information in a supported format such as the format created by the [Lyquidity VAT plugin for EDD](http://www.wproute.com/ "VAT for EDD") 
 or the [WooCommerce EU VAT Compliance plugin "Premium version"](https://www.simbahosting.co.uk/s3/product/woocommerce-eu-vat-compliance/) 
 or the [WooCommerce EU VAT Assistant](https://wordpress.org/plugins/woocommerce-eu-vat-assistant/).
 
@@ -129,6 +129,11 @@ Fixed the tests to confirm the existence of the Lyquidity plugin (EDD) or the Si
 = 1.0.13 =
 
 Wrong store URL included
+
+= 1.0.14 =
+
+Updated references to the service site
+Updated to allow any number of credits in the same period
 
 == Upgrade Notice ==
 

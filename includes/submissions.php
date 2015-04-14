@@ -203,7 +203,7 @@ function show_submissions( $moss_lines = false )
 				<a href="?page=moss-submissions&action=new_submission" class="add-new-h2"><?php _e( 'Add New', 'vat_moss' ); ?></a>
 			</h2>
 
-			<p><?php echo $msg10; ?><a href="http://www.lyquidity.com/wpstore/wordpress-vat-moss-reporting/"><?php echo $msg11; ?></a>.</p>
+			<p><?php echo $msg10; ?><a href="http://www.wproute.com/wordpress-vat-moss-reporting/"><?php echo $msg11; ?></a>.</p>
 			<p><?php echo $msg2;  ?></p>
 <?php
 			if(function_exists('wincache_ucache_get') && ini_get('wincache.ucenabled'))

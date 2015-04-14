@@ -219,7 +219,7 @@ function process_response($id, $args)
 					// Copy the results of the 'submission' and 'submission_log' arrays to posts on this site
 					$submission_log_id = wp_insert_post(
 						array(
-							'post_title'	=> isset( $result->submission_log->title ) ? $result->submission_log->title : "Submission error log ($id)",
+							'post_title'	=> isset( $result->submission_log->title ) ? $result->submission_log->title : "Submission log ($id)",
 							'post_type'		=> 'moss_submission_log',
 							'post_status'	=> property_exists( $result, 'state' ) ? $result->state : STATE_FAILED,
 							'post_parent'	=> $id,

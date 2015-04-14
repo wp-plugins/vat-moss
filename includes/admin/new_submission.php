@@ -240,6 +240,13 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 					</div>
 				</div>
 			</div>
+			
+			<p><strong><?php _e('It may be that not all the lines shown below are selectable.', 'vat_moss'); ?></strong></p>
+			<p><?php
+				_e('This will occur if a transaction includes more than one item as only one of the items will be selectable for all the items.', 'vat_moss');
+				echo '&nbsp;';
+				_e('All items in a transaction must be considered in case they used different VAT rates and, so, must be reported seperately.', 'vat_moss')
+			?></p>
 <?php
 			$sales_list->views();
 			$sales_list->display();

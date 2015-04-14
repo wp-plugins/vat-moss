@@ -156,7 +156,11 @@ jQuery(document).ready(function ($) {
 						json = jQuery.parseJSON( response );
 						if (json.status && (json.status === "success" || json.status === "valid"))
 						{
-							alert(vat_moss_vars.LicenseChecked.replace( '{credits}', json.credits ) );
+							var msg = vat_moss_vars.LicenseChecked.replace( '{credits}', json.credits );
+							
+							if (json.quarters)
+								msg += "This credit can also be used to create files for these quarters: {quarters}".replace( '{quarters}', json.quarters );
+							alert( msg );
 							return;
 						}
 					}
