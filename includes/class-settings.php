@@ -366,45 +366,6 @@ class MOSS_WP_Settings {
 	}
 
 	/**
-	 * License Callback
-	 *
-	 * Renders license key fields.
-	 *
-	 * @since 1.0
-	 * @param array $args Arguments passed by the setting
-	 * @global $this->options Array of all the plugin Options
-	 * @return void
-	 */
-	function license_callback( $args ) {
-
-		if ( isset( $this->options[ $args['id'] ] ) )
-			$value = $this->options[ $args['id'] ];
-		else
-			$value = isset( $args['std'] ) ? $args['std'] : '';
-
-		$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-		$html = '<input type="text" class="' . $size . '-text" id="moss_settings[' . $args['id'] . ']" name="moss_settings[' . $args['id'] . ']" value="' . esc_attr( stripslashes( $value ) ) . '"/>';
-		$license_status = get_option('vat_moss_license_active');
-
-		$license_key = ! empty( $value ) ? $value : false;
-
-		if( 'valid' === $license_status && ! empty( $license_key ) ) {
-			$html .= '<input type="submit" class="button" name="moss_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'vat_moss' ) . '"/>';
-			$html .= '<span style="color:green;">&nbsp;' . __( 'Your license is valid!', 'vat_moss' ) . '</span>';
-		} elseif( 'expired' === $license_status && ! empty( $license_key ) ) {
-			$renewal_url = add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => 17 ), 'https://plugin.com/checkout' );
-			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="button-primary">' . __( 'Renew Your License', 'vat_moss' ) . '</a>';
-			$html .= '<br/><span style="color:red;">&nbsp;' . __( 'Your license has expired, renew today to continue getting updates and support!', 'vat_moss' ) . '</span>';
-		} else {
-			$html .= '<input type="submit" class="button" name="moss_activate_license" value="' . esc_attr__( 'Activate License', 'vat_moss' ) . '"/>';
-		}
-
-		$html .= '<br/><label for="moss_settings[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
-
-		echo $html;
-	}
-
-	/**
 	 * Number Callback
 	 *
 	 * Renders number fields.
