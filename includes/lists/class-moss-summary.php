@@ -25,9 +25,15 @@ class MOSS_Summary extends \WP_List_Table {
 
 	/**
 	 * A list of the payments to be reported
+	 * @var array $lines
 	 */
 	private $lines;
 
+	/**
+	 * A list of MOSS lines to report
+	 * @var array $moss_lines
+	 */
+	private $moss_lines;
 
 	/**
 	 * Get things started
@@ -41,16 +47,16 @@ class MOSS_Summary extends \WP_List_Table {
 
 		// Set parent defaults
 		parent::__construct( array(
-			'singular'  => __('MOSS Submission Summary', 'vat_moss'),	// Singular name of the listed records
-			'plural'    => __('MOSS Submission Summaries', 'vat_moss'),	// Plural name of the listed records
-			'ajax'      => false										// Does this table support ajax?
+			'singular'  => __( 'MOSS Submission Summary', 'vat_moss' ),	// Singular name of the listed records
+			'plural'    => __( 'MOSS Submission Summaries', 'vat_moss' ),	// Plural name of the listed records
+			'ajax'      => false,										// Does this table support ajax?
 		));
 		$this->moss_lines = $moss_lines;
 		$this->query();
 	}
 
 	/**
-	 * 
+	 *
 	 * This function renders most of the columns in the list table.
 	 *
 	 * @access public
@@ -91,8 +97,9 @@ class MOSS_Summary extends \WP_List_Table {
 	 * @since 1.0
 	 * @return array Array of all the sortable columns
 	 */
-	public function get_sortable_columns() {
-		
+	public function get_sortable_columns()
+	{
+
 		return array(
 			'country_code'	=> array( 'country_code', true ),
 			'vat_type'		=> array( 'vat_type', true ),
@@ -103,27 +110,27 @@ class MOSS_Summary extends \WP_List_Table {
 	/** ==============================================================
 	 *  BEGIN Query support function
 	 *  --------------------------------------------------------------
-	 * 
+	 *
 	 * The following 10 functions provide sorting for the vat payments
 	 */
 	function sortbycountry_code_asc($a, $b)
 	{
-		return strcasecmp( $a['country_code'], $b['country_code']);
+		return strcasecmp( $a['country_code'], $b['country_code'] );
 	}
 
 	function sortbycountry_code_desc($a, $b)
 	{
-		return strcasecmp( $b['country_code'], $a['country_code']);
+		return strcasecmp( $b['country_code'], $a['country_code'] );
 	}
 
 	function sortbyvat_type_asc($a, $b)
 	{
-		return strcasecmp( $a['vat_type'], $b['vat_type']);
+		return strcasecmp( $a['vat_type'], $b['vat_type'] );
 	}
 
 	function sortbyvat_type_desc($a, $b)
 	{
-		return strcasecmp( $b['vat_type'], $a['vat_type']);
+		return strcasecmp( $b['vat_type'], $a['vat_type'] );
 	}
 
 	function sortbyvat_rate_asc($a, $b)
@@ -168,11 +175,11 @@ class MOSS_Summary extends \WP_List_Table {
 
 		$locale = localeconv();
 		// Flatten the moss_lines array
-		foreach( $this->moss_lines as $country_code => $vat_types )
+		foreach ( $this->moss_lines as $country_code => $vat_types )
 		{
-			foreach( $vat_types as $vat_type => $vat_rates )
+			foreach ( $vat_types as $vat_type => $vat_rates )
 			{
-				foreach( $vat_rates as $vat_rate => $values )
+				foreach ( $vat_rates as $vat_rate => $values )
 				{
 					$this->lines[] = array(
 						'country_code'	=> $country_code,
@@ -188,9 +195,9 @@ class MOSS_Summary extends \WP_List_Table {
 		// Sort them
 		$orderby	= isset( $_GET['orderby'] ) ? $_GET['orderby'] : 'country_code';
 		$order		= isset( $_GET['order'] ) ? $_GET['order'] : 'DESC';
-		$order = strtolower($order);
+		$order = strtolower( $order );
 
-		uasort($this->lines, array($this, "sortby{$orderby}_{$order}"));
+		uasort( $this->lines, array( $this, "sortby{$orderby}_{$order}" ) );
 
 		return $this->lines;
 	}
@@ -198,7 +205,7 @@ class MOSS_Summary extends \WP_List_Table {
 	/** --------------------------------------------------------------
 	 *  END Query support function
 	 *  ==============================================================
-	 * 
+	 *
 	 * Build all the reports data
 	 *
 	 * @access public

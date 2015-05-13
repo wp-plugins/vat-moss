@@ -19,9 +19,9 @@ function edit_submission($id)
 {
 	global $selected;
 
-	$selected	= maybe_unserialize(get_post_meta($id, 'mosssales', true));
-	
-	if (isset($_REQUEST['change_periods']))
+	$selected	= maybe_unserialize( get_post_meta( $id, 'mosssales', true ) );
+
+	if ( isset( $_REQUEST['change_periods'] ) )
 	{
 		$from_year	= null;
 		$from_month	= null;

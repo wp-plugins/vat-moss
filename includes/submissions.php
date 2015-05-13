@@ -28,10 +28,10 @@ if ( ! defined( 'STATE_GENERATED' ) )
 
 include VAT_MOSS_INCLUDES_DIR . 'lists/class-submissions.php';
 include VAT_MOSS_INCLUDES_DIR . 'lists/class-logs.php';
-include VAT_MOSS_INCLUDES_DIR . 'admin/new_submission.php';
+include VAT_MOSS_INCLUDES_DIR . 'admin/new-submission.php';
 include VAT_MOSS_INCLUDES_DIR . 'lists/class-sales.php';
-include VAT_MOSS_INCLUDES_DIR . 'admin/edit_submission.php';
-include VAT_MOSS_INCLUDES_DIR . 'admin/delete_submission.php';
+include VAT_MOSS_INCLUDES_DIR . 'admin/edit-submission.php';
+include VAT_MOSS_INCLUDES_DIR . 'admin/delete-submission.php';
 include VAT_MOSS_INCLUDES_DIR . 'admin/save_submission.php';
 include VAT_MOSS_INCLUDES_DIR . 'admin/view_submission.php';
 include VAT_MOSS_INCLUDES_DIR . 'admin/submit_submission.php';
@@ -47,7 +47,7 @@ setlocale(LC_ALL, $locale);
 function moss_submissions()
 {
 	global $moss_options;
-	
+
 	 add_thickbox();
 
 	if ( isset( $_REQUEST['action'] ) && 'check_submission' == $_REQUEST['action'] ) {
@@ -59,7 +59,7 @@ function moss_submissions()
 			show_submissions();
 			return;
 		}
-				
+
 		check_submission($_REQUEST['id']);
 		show_submissions();
 	}
@@ -73,7 +73,7 @@ function moss_submissions()
 			show_submissions();
 			return;
 		}
-		
+
 		if (!isset($_REQUEST['id']))
 		{
 			echo "<div class='error'><p>" . __('There is no id of the submission log to delete.', 'vat_moss' ) . "</p></div>";
@@ -81,10 +81,10 @@ function moss_submissions()
 			show_submission_logs($_REQUEST['submission_id']);
 			return;
 		}
-		
+
 		delete_submission_log($_REQUEST['id']);
 		show_submission_logs($_REQUEST['submission_id']);
-		
+
 	}
 
 	else if ( isset( $_REQUEST['action'] ) && 'show_submission_logs' == $_REQUEST['action'] ) {
@@ -96,11 +96,11 @@ function moss_submissions()
 			show_submissions();
 			return;
 		}
-		
+
 		show_submission_logs($_REQUEST['id']);
 
 	} else if ( isset( $_REQUEST['action'] ) && 'submit_submission' == $_REQUEST['action'] ) {
-	
+
 		if (!isset($_REQUEST['id']))
 		{
 			echo "<div class='error'><p>" . __('There is no id of the submission to submit.', 'vat_moss' ) . "</p></div>";
@@ -296,7 +296,7 @@ function generate_moss_summary($id, $vat_records)
 		//
 		foreach($vat_payments as $key => $payment)
 		{
-			// Check the country exists			
+			// Check the country exists
 			$country = isset( $moss_lines[$payment['country_code']] )
 				? $moss_lines[$payment['country_code']]
 				: array();
@@ -312,7 +312,7 @@ function generate_moss_summary($id, $vat_records)
 			$vat_rate = isset( $vat_type[$index] )
 				? $vat_type[$index]
 				: array('tax' => 0, 'net' => 0);
-			
+
 			// Accumulate the values
 			$vat_rate['tax'] += $payment['tax'];
 			$vat_rate['net'] += $payment['net'];
@@ -322,7 +322,7 @@ function generate_moss_summary($id, $vat_records)
 			$country[$payment['vat_type']] = $vat_type;
 			$moss_lines[$payment['country_code']] = $country;
 		}
-		
+
 		return $moss_lines;
 	}
 	catch(Exception $ex)
@@ -373,7 +373,7 @@ function add_submission_info( $message ) {
 function mossales_count($mosssales)
 {
 	$result = 0;
-	
+
 	if (is_array($mosssales))
 	{
 		foreach($mosssales as $key => $integration)

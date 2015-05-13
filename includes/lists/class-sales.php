@@ -27,7 +27,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	 * A list of the payments to be reported
 	 */
 	private $vat_payments;
-	
+
 	private $from_year = null;
 	private $from_month = null;
 	private $to_year = null;
@@ -51,16 +51,16 @@ class MOSS_Sales_List extends \WP_List_Table {
 	 * @since 1.0
 	 * @see WP_List_Table::__construct()
 	 */
-	public function __construct($from_year = null, $from_month = null, $to_year = null, $to_month = null, $edit = false, $read_only = false) {
-	
+	public function __construct( $from_year = null, $from_month = null, $to_year = null, $to_month = null, $edit = false, $read_only = false) {
+
 		$this->locale = localeconv();
 		$this->vat_payments = array();
 
 		// Set parent defaults
 		parent::__construct( array(
-			'singular'  => __('MOSS Sale', 'vat_moss'),		// Singular name of the listed records
-			'plural'    => __('MOSS Sales', 'vat_moss'),	// Plural name of the listed records
-			'ajax'      => false							// Does this table support ajax?
+			'singular'  => __( 'MOSS Sale', 'vat_moss' ),		// Singular name of the listed records
+			'plural'    => __( 'MOSS Sales', 'vat_moss' ),	// Plural name of the listed records
+			'ajax'      => false,							// Does this table support ajax?
 		));
 
 		$this->from_year	= $from_year;
@@ -79,13 +79,13 @@ class MOSS_Sales_List extends \WP_List_Table {
 	/** ==============================================================
 	 *  BEGIN Utility functions to read the period filter settings
 	 *  --------------------------------------------------------------
-	 * 
+	 *
 	 * From year
 	 */
 	function get_from_year()
 	{
-		return $this->from_year === null 
-			? ( isset( $_REQUEST[ 'from_year' ] ) ? $_REQUEST[ 'from_year' ] : date('Y') )
+		return $this->from_year === null
+			? ( isset( $_REQUEST['from_year'] ) ? $_REQUEST['from_year'] : date( 'Y' ) )
 			: $this->from_year ;
 	}
 
@@ -95,7 +95,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	function get_from_month()
 	{
 		return $this->from_month === null
-			? ( isset( $_REQUEST[ 'from_month' ] ) ? $_REQUEST[ 'from_month' ] : date('m') ) 
+			? ( isset( $_REQUEST['from_month'] ) ? $_REQUEST['from_month'] : date( 'm' ) )
 			: $this->from_month;
 	}
 
@@ -105,7 +105,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	function get_to_year()
 	{
 		return $this->to_year === null
-			? ( isset( $_REQUEST[ 'to_year' ] ) ? $_REQUEST[ 'to_year' ]	: date('Y') )
+			? ( isset( $_REQUEST['to_year'] ) ? $_REQUEST['to_year']	: date( 'Y' ) )
 			: $this->to_year;
 	}
 
@@ -115,14 +115,14 @@ class MOSS_Sales_List extends \WP_List_Table {
 	function get_to_month()
 	{
 		return $this->to_month === null
-			? ( isset( $_REQUEST[ 'to_month' ] ) ? $_REQUEST[ 'to_month' ] : date('m') )
+			? ( isset( $_REQUEST['to_month'] ) ? $_REQUEST['to_month'] : date( 'm' ) )
 			: $this->to_month;
 	}
 
 	/** --------------------------------------------------------------
 	 *  END Utility functions to read the period filter settings
 	 *  ==============================================================
-	 * 
+	 *
 	 * This function renders most of the columns in the list table.
 	 *
 	 * @access public
@@ -133,8 +133,9 @@ class MOSS_Sales_List extends \WP_List_Table {
 	 *
 	 * @return string Column Name
 	 */
-	public function column_default( $item, $column_name ) {
-		switch( $column_name ){
+	public function column_default( $item, $column_name )
+	{
+		switch ( $column_name ){
 			case 'net' :
 				return number_format( $item[ $column_name ], 2, $this->locale['decimal_point'], $this->locale['thousands_sep'] ) .
 					"<input type='hidden' name='mosssale[{$item['source']}][net][{$item['id']}][{$item['item_id']}]' value='{$item['net']}'>";
@@ -143,8 +144,8 @@ class MOSS_Sales_List extends \WP_List_Table {
 					"<input type='hidden' name='mosssale[{$item['source']}][tax][{$item['id']}][{$item['item_id']}]' value='{$item['tax']}'>";
 			case 'vat_rate' :
 				return number_format( $item[ $column_name ] * 100, 1, $this->locale['decimal_point'], $this->locale['thousands_sep'] );
-			case 'source':				
-				return isset($this->integrations[$item['source']]) ? $this->integrations[$item['source']]->name : $item['source'];
+			case 'source':
+				return isset($this->integrations[ $item['source'] ]) ? $this->integrations[ $item['source'] ]->name : $item['source'];
 			default:
 				return $item[ $column_name ];
 		}
@@ -159,8 +160,8 @@ class MOSS_Sales_List extends \WP_List_Table {
 	 */
 	public function get_columns() {
 		$columns = array();
-		
-		if (!$this->read_only)
+
+		if ( ! $this->read_only )
 			$columns['cb'] = 'All';
 
 		$columns = $columns + array(
@@ -186,7 +187,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	 * @return array Array of all the sortable columns
 	 */
 	public function get_sortable_columns() {
-		
+
 		return array(
 			'source'			=> array( 'source', true ),
 			'date'				=> array( 'date', true ),
@@ -222,36 +223,48 @@ class MOSS_Sales_List extends \WP_List_Table {
 		$from_month	= $this->get_from_month();
 		$to_month	= $this->get_to_month();
 ?>
-		<span style="float: left; margin-top: 5px;"><?php echo __('From', 'vat_moss'); ?>:&nbsp;</span>
-<?php
-	if ($this->read_only) {
-?>
+		<span style="float: left; margin-top: 5px;"><?php echo esc_html__( 'From', 'vat_moss' ); ?>:&nbsp;</span>
+	<?php
+	if ( $this->read_only ) {
+	?>
 		&nbsp;<span style="float: left; margin-top: 5px;">
-<?php	echo date ("M", mktime(0,0,0,$from_month,1,0)) . " $from_year&nbsp;"; ?>
+<?php
+		// @codingStandardsIgnoreStart
+		echo date ( "M", mktime( 0,0,0, $from_month,1,0 ) ) . " $from_year&nbsp;";
+		// @codingStandardsIgnoreEnd
+?>
 		</span>
 <?php
 	} else
 	{
+		// @codingStandardsIgnoreStart
 		echo vat_moss()->html->year_dropdown( 'from_year', $from_year );
 		echo vat_moss()->html->month_dropdown( 'from_month', $from_month );
+		// @codingStandardsIgnoreEnd
 	}
 ?>
-		<span style="float: left; margin-top: 5px;"><?php echo __('To', 'vat_moss'); ?>:&nbsp;</span>
-<?php
-	if ($this->read_only) {
-?>
+		<span style="float: left; margin-top: 5px;"><?php echo esc_html__( 'To', 'vat_moss' ); ?>:&nbsp;</span>
+	<?php
+	if ( $this->read_only ) {
+	?>
 		<span style="float: left; margin-top: 5px;">
-<?php	echo date ("M", mktime(0,0,0,$to_month,1,0)) . " $to_year&nbsp;"; ?>
+<?php
+		// @codingStandardsIgnoreStart
+		echo date ( "M", mktime(0,0,0,$to_month,1,0 ) ) . " $to_year&nbsp;";
+		// @codingStandardsIgnoreEnd
+?>
 		</span>
 <?php
 	} else
 	{
+		// @codingStandardsIgnoreStart
 		echo vat_moss()->html->year_dropdown ( 'to_year',  $to_year );
 		echo vat_moss()->html->month_dropdown( 'to_month', $to_month );
+		// @codingStandardsIgnoreEnd
 	}
 ?>
 <?php
-		if ( empty( $_REQUEST['s'] ) && !$this->has_items() )
+		if ( empty( $_REQUEST['s'] ) && ! $this->has_items() )
 			return;
 
 		$text = __( 'Search', 'vat_moss' );
@@ -268,73 +281,73 @@ class MOSS_Sales_List extends \WP_List_Table {
 
 ?>
 		<div style="float: right;">
-			<label class="screen-reader-text" for="<?php echo $input_id ?>"><?php echo $text; ?>:</label>
-			<input type="search" id="<?php echo $input_id ?>" name="s" value="<?php _admin_search_query(); ?>" />
-			<?php submit_button( $text, 'button', false, false, array('id' => 'search-submit') ); ?>
+			<label class="screen-reader-text" for="<?php esc_html_e( $input_id ); ?>"><?php esc_html_e( $text ); ?>:</label>
+			<input type="search" id="<?php esc_html_e( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>" />
+			<?php submit_button( $text, 'button', false, false, array( 'id' => 'search-submit' ) ); ?>
 		</div>
 <?php
 	}
 
 	/**
-     * Output the checkbox column
-     *
-     * @access      private
-     * @since       1.0
-     * @return      void
-     */
+	 * Output the checkbox column
+	 *
+	 * @access      private
+	 * @since       1.0
+	 * @return      void
+	 */
 
-    function column_cb( $item ) {
+	function column_cb( $item ) {
 
 		if ($this->read_only) return;
 
 		global $selected;
-		
-		$checked = $item['first'] && is_array($selected) && isset($selected[$item['source']]) && isset($selected[$item['source']][$item['id']]);
 
-        return sprintf(
-            '<input type="checkbox" name="%1$s[%3$s][id][]" value="%2$s" %4$s %5$s />',
-            esc_attr( $this->_args['singular'] ),
-            esc_attr( $item['id'] ),
-            esc_attr( $item['source']), 
+		$checked = $item['first'] && is_array( $selected ) && isset( $selected[ $item['source'] ] ) && isset( $selected[ $item['source'] ][ $item['id'] ] );
+
+		return sprintf(
+			'<input type="checkbox" name="%1$s[%3$s][id][]" value="%2$s" %4$s %5$s />',
+			esc_attr( $this->_args['singular'] ),
+			esc_attr( $item['id'] ),
+			esc_attr( $item['source'] ),
 			$checked ? "checked" : "",
-			!$item['first']  ? "disabled" : ""
-        );
-    }
+			! $item['first']  ? "disabled" : ""
+		);
+	}
 
 	/** ==============================================================
 	 *  BEGIN Query support function
 	 *  --------------------------------------------------------------
-	 * 
+	 *
 	 * The following 10 functions provide sorting for the vat payments
 	 */
 	function sortbydate_asc($a, $b)
 	{
-		return strcasecmp( $a['date'],  $b['date']);
+		return strcasecmp( $a['date'],  $b['date'] );
 	}
 
 	function sortbydate_desc($a, $b)
 	{
-		return strcasecmp( $b['date'],  $a['date']);
+		return strcasecmp( $b['date'],  $a['date'] );
 	}
 
 	function sortbycountry_code_asc($a, $b)
 	{
-		return strcasecmp( $a['country_code'],  $b['country_code']);
+		return strcasecmp( $a['country_code'],  $b['country_code'] );
 	}
 
 	function sortbycountry_code_desc($a, $b)
 	{
-		return strcasecmp( $b['country_code'],  $a['country_code']);
+		return strcasecmp( $b['country_code'],  $a['country_code'] );
 	}
 
 	function sortbysource_asc($a, $b)
 	{
-		return strcasecmp( $a['source'],  $b['source']);
+		return strcasecmp( $a['source'],  $b['source'] );
 	}
 
 	function sortbysource_desc($a, $b)
 	{
-		return strcasecmp( $b['source'],  $a['source']);
+		return strcasecmp( $b['source'],  $a['source'] );
 	}
 
 	function sortbynet_asc($a, $b)
@@ -378,7 +391,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	public function bulk_actions() {
 		// These aren't really bulk actions but this outputs the markup in the right place
 		do_action( 'moss_report_view_actions' );
-		if (!$this->read_only)
+		if ( ! $this->read_only )
 		{
 			submit_button( __( 'Show', 'vat_moss' ), 'secondary', 'change_periods', false );
 			if ($this->edit)
@@ -397,9 +410,9 @@ class MOSS_Sales_List extends \WP_List_Table {
 
 ?>
 	<div class="tablenav <?php echo esc_attr( $which ); ?>">
-<?php
-		if ($which === 'top') {
-?>
+		<?php
+		if ( $which === 'top' ) {
+		?>
 		<div class="actions bulkactions">
 			<?php $this->bulk_actions( $which ); ?>
 		</div>
@@ -430,31 +443,31 @@ class MOSS_Sales_List extends \WP_List_Table {
 
 		$orderby	= isset( $_REQUEST['orderby'] ) ? $_REQUEST['orderby'] : 'date';
 		$order		= isset( $_REQUEST['order'] ) ? $_REQUEST['order'] : 'DESC';
-		$endDay		= date("t", strtotime(sprintf("%1u-%2u-01", $this->get_to_year(), $this->get_to_month())));
+		$endDay		= date( "t", strtotime( sprintf( "%1u-%2u-01", $this->get_to_year(), $this->get_to_month() ) ) );
 
 		$startYear = $this->get_from_year();
 		$startMonth = $this->get_from_month();
 		$startDate = "$startYear-$startMonth-01";
 		$endYear = $this->get_to_year();
 		$endMonth = $this->get_to_month();
-		$endDate = date("Y-m-t", strtotime("$endYear-$endMonth-01"));
+		$endDate = date( "Y-m-t", strtotime( "$endYear-$endMonth-01" ) );
 
 		// Get the payments to display
-		$this->vat_payments = vat_moss()->integrations->get_vat_information($startDate, $endDate, $this->edit, $this->read_only);
-		
+		$this->vat_payments = vat_moss()->integrations->get_vat_information( $startDate, $endDate, $this->edit, $this->read_only );
+
 		// If there are any, filter them to exclude previously selected payments if needed
-		if ($this->vat_payments !== null)
+		if ( $this->vat_payments !== null )
 		{
 			$this->vat_payments = array_filter($this->vat_payments, function($payment) use($selected)
-			{
-				if (!isset($payment['submission_id']) || $payment['submission_id'] == 0) return true;
-				if (!is_array($selected)) return false;
-				return isset($selected[$payment['source']][$payment['id']]);
+				{
+					if ( ! isset( $payment['submission_id'] ) || $payment['submission_id'] === 0) return true;
+					if ( ! is_array( $selected ) ) return false;
+					return isset( $selected[ $payment['source'] ][ $payment['id'] ] );
 			});
 
 			// Sort them
-			$order = strtolower($order);
-			uasort($this->vat_payments, array($this, "sortby{$orderby}_{$order}"));
+			$order = strtolower( $order );
+			uasort( $this->vat_payments, array( $this, "sortby{$orderby}_{$order}" ) );
 		}
 
 		return $this->vat_payments;
@@ -463,7 +476,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 	/** --------------------------------------------------------------
 	 *  END Query support function
 	 *  ==============================================================
-	 * 
+	 *
 	 * Build all the reports data
 	 *
 	 * @access public

@@ -17,42 +17,45 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function delete_submission($id, $delete_post = true)
 {
-	if (!current_user_can('delete_submissions'))
+	if ( ! current_user_can( 'delete_submissions' ) )
 	{
-		echo "<div class='error'><p>" . __('You do not have rights to delete a submission.', 'vat_moss' ) . "</p></div>";
+
+		// @codingStandardsIgnoreStart
+		echo "<div class='error'><p>" . __( 'You do not have rights to delete a submission.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreEnd
 		return;
 	}
 
 	// Begin by deleting the records associated with the submission
-	$mosssales = maybe_unserialize(get_post_meta($id, 'mosssales', true));
+	$mosssales = maybe_unserialize( get_post_meta( $id, 'mosssales', true ) );
 
-	if ( mossales_count($mosssales) == 0 )
+	if ( mossales_count( $mosssales ) === 0 )
 	{
-		report_errors( array( __('There are no transactions selected for this submission.', 'vat_moss' ) ) );
+		report_errors( array( __( 'There are no transactions selected for this submission.', 'vat_moss' ) ) );
 	}
 	else
 	{
-		$errors = vat_moss()->integrations->delete_vat_information($mosssales);
-		if ($errors)
+		$errors = vat_moss()->integrations->delete_vat_information( $mosssales );
+		if ( $errors )
 		{
-			report_errors($errors);
+			report_errors( $errors );
 			return false;
 		}
 	}
-	
-	if ($delete_post)
+
+	if ( $delete_post )
 	{
 		$args = array(
 			'post_parent' => $id,
-			'post_type'   => 'moss_submission_log', 
+			'post_type'   => 'moss_submission_log',
 			'posts_per_page' => -1,
-			'post_status' => 'any' 
+			'post_status' => 'any',
 		);
 
 		$logs = get_children( $args );
 
-		foreach($logs as $log){		
-			delete_submission_log($log->ID);
+		foreach ( $logs as $log ){
+			delete_submission_log( $log->ID );
 		}
 
 		wp_delete_post( $id, $delete_post );
@@ -76,9 +79,11 @@ function delete_submission($id, $delete_post = true)
 
 function delete_submission_log($id, $delete_post = true)
 {
-	if (!current_user_can('delete_submission_logs'))
+	if ( ! current_user_can( 'delete_submission_logs' ) )
 	{
-		echo "<div class='error'><p>" . __('You do not have rights to delete a submission log.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreStart
+		echo "<div class='error'><p>" . __( 'You do not have rights to delete a submission log.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreEnd
 		return;
 	}
 
@@ -86,7 +91,7 @@ function delete_submission_log($id, $delete_post = true)
 	delete_post_meta( $id, 'xml_final_request' );
 	delete_post_meta( $id, 'xml_initial_request' );
 	delete_post_meta( $id, 'xml_initial_response' );
-	
+
 	delete_post_meta( $id, 'error_information' );
 	delete_post_meta( $id, 'correlationid' );
 	delete_post_meta( $id, 'error_message' );
@@ -94,7 +99,7 @@ function delete_submission_log($id, $delete_post = true)
 	delete_post_meta( $id, 'result' );
 
 	wp_delete_post( $id, $delete_post );
-	
+
 	return true;
 }
 

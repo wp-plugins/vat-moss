@@ -21,10 +21,10 @@ function get_setting($id, $key)
 
 	if ($id)
 		$result = get_post_meta( $id, $key, true );
-		
-	if (!empty($result)) return $result;
 
-	return isset($_REQUEST[$key]) ? $_REQUEST[$key] : vat_moss()->settings->get($key);
+	if ( ! empty( $result ) ) return $result;
+
+	return isset( $_REQUEST[ $key ] ) ? $_REQUEST[ $key ] : vat_moss()->settings->get( $key );
 }
 
 function new_submission($from_year = null, $from_month = null, $to_year = null, $to_month = null, $submission_id = 0, $read_only = false)
@@ -32,17 +32,21 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 	global $selected;
 	$locale = localeconv();
 
-	if (!current_user_can('edit_submissions'))
+	if ( ! current_user_can( 'edit_submissions' ) )
 	{
-		echo "<div class='error'><p>" . __('You do not have rights to perform this action.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreStart
+		echo "<div class='error'><p>" . __( 'You do not have rights to perform this action.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreEnd
 		show_submissions();
 		return;
 	}
 
-	$state = get_post_status($submission_id);
-	if (($state === STATE_SUBMITTED || $state === STATE_ACKNOWLEDGED) && !$read_only)
+	$state = get_post_status( $submission_id );
+	if ( ( $state === STATE_SUBMITTED || $state === STATE_ACKNOWLEDGED ) && ! $read_only )
 	{
+		// @codingStandardsIgnoreStart
 		echo "<div class='error'><p>" . __('This action is not valid on a submission that is complete or acknowledged.', 'vat_moss' ) . "</p></div>";
+		// @codingStandardsIgnoreEnd
 		show_submissions();
 		return;
 	}
@@ -55,18 +59,18 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 		: __( 'New Submission', 'vat_moss' );
 	$title .= $submission_id ? " ($submission_id)" : "";
 
-	$sales_list = new MOSS_Sales_List($from_year, $from_month, $to_year, $to_month, $submission_id, $read_only);
+	$sales_list = new MOSS_Sales_List( $from_year, $from_month, $to_year, $to_month, $submission_id, $read_only );
 	$sales_list->prepare_items();
 
-	$vrn			= get_setting( $submission_id, 'vat_number');
-	$submitter		= get_setting( $submission_id, 'submitter');
-	$email			= get_setting( $submission_id, 'email');
+	$vrn			= get_setting( $submission_id, 'vat_number' );
+	$submitter		= get_setting( $submission_id, 'submitter' );
+	$email			= get_setting( $submission_id, 'email' );
 
-	$submission_key	= get_setting( $submission_id, 'submission_key');
-	
+	$submission_key	= get_setting( $submission_id, 'submission_key' );
+
 	$submission_period = ($submission_id)
 		? $result = get_post_meta( $submission_id, 'submission_period', true )
-		: floor((date('n') - 1) / 3) + 1;
+		: floor( ( date( 'n' ) - 1 ) / 3 ) + 1;
 
 	$submission_year = ($submission_id)
 		? $result = get_post_meta( $submission_id, 'submission_year', true )
@@ -75,7 +79,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 	$totalnetvalue = get_post_meta( $submission_id, 'totalnetvalue', true );
 	$totaltaxvalue = get_post_meta( $submission_id, 'totaltaxvalue', true );
 
-	$submission = $submission_id ? get_post($submission_id) : null;
+	$submission = $submission_id ? get_post( $submission_id ) : null;
 	$post_title	= $submission_id ? $submission->post_title : '';
 
 	$test_mode = get_post_meta( $submission_id, 'test_mode', true );
@@ -94,60 +98,64 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 		<form id="vat-moss-sales" method="post">
 
 <?php		submit_button( __( 'Save', 'vat_moss' ), 'primary', 'save_submission', false, array( 'style' => 'float: right; margin-top: 10px;' ) ); ?>
-			<a href='?page=moss-submissions' class='button secondary' style='float: right; margin-top: 10px; margin-right: 10px;'><?php _e('Submissions', 'vat_moss'); ?></a>
-			<h2><?php echo $title; if ($submission_id) { ?>
-				<a href="?page=moss-submissions&action=new_submission" class="add-new-h2"><?php _e( 'Add New', 'vat_moss' ); ?></a>
+			<a href='?page=moss-submissions' class='button secondary' style='float: right; margin-top: 10px; margin-right: 10px;'><?php esc_html_e( 'Submissions', 'vat_moss' ); ?></a>
+			<h2><?php esc_html_e( $title ); if ( $submission_id ) { ?>
+				<a href="?page=moss-submissions&action=new_submission" class="add-new-h2"><?php esc_html_e( 'Add New', 'vat_moss' ); ?></a>
 			<?php } ?>
 			</h2>
 
 			<input type="hidden" name="post_type" value="submission"/>
 			<input type="hidden" name="page" value="moss-submissions"/>
-			<input type="hidden" name="submission_id" value="<?php echo $submission_id; ?>"/>
-			<input type="hidden" name="_wp_nonce" value="<?php echo wp_create_nonce( 'moss_submission' ); ?>" />
+			<input type="hidden" name="submission_id" value="<?php esc_html_e( $submission_id ); ?>"/>
+			<input type="hidden" name="_wp_nonce" value="<?php
+			// @codingStandardsIgnoreStart
+			echo wp_create_nonce( 'moss_submission' );
+			// @codingStandardsIgnoreEnd
+			?>" />
 
 			<div id="poststuff" >
 				<div id="moss_submission_header" class="postbox ">
-					<h3 class="hndle ui-sortable-handle"><span><?php _e( 'Details', 'vat_moss' ); ?></span></h3>
+					<h3 class="hndle ui-sortable-handle"><span><?php esc_html_e( 'Details', 'vat_moss' ); ?></span></h3>
 					<div class="inside">
-						<table width="100%" class="moss-submission-header-details">
+						<table style="width: 100%" class="moss-submission-header-details">
 							<colgroup>
 								<col width="200px">
 							</colgroup>
 							<tbody>
 								<tr>
-									<td scope="row" style="200px"><b><?php _e( 'Submission Title', 'vat_moss' ); ?></b></td>
+									<td scope="row" style="200px"><b><?php esc_html_e( 'Submission Title', 'vat_moss' ); ?></b></td>
 									<td style="200px">
-<?php	if ($read_only) { ?>
-										<span><?php echo $post_title; ?></span>
+<?php	if ( $read_only ) { ?>
+										<span><?php esc_html_e( $post_title ); ?></span>
 <?php	} else { ?>
-										<input type="text" class="regular-text" id="moss_settings_title" name="moss_settings_title" value="<?php echo $post_title; ?>">
+										<input type="text" class="regular-text" id="moss_settings_title" name="moss_settings_title" value="<?php esc_html_e( $post_title ); ?>">
 <?php	} ?>
 									</td>
 								</tr>
 								<tr>
-									<td style="vertical-align: top;" scope="row"><span><b><?php _e( 'Test mode', 'vat_moss' ); ?></b></span></td>
+									<td style="vertical-align: top;" scope="row"><span><b><?php esc_html_e( 'Test mode', 'vat_moss' ); ?></b></span></td>
 									<td>
-<?php	if ($read_only) { ?>
+<?php	if ( $read_only ) { ?>
 										<span><?php echo $test_mode ? "Yes" : "No"; ?></span>&nbsp;-&nbsp;
-										<input type="hidden" id="ecsl_settings_test_mode" value="<?php echo $test_mode; ?>">
+										<input type="hidden" id="ecsl_settings_test_mode" value="<?php esc_html_e( $test_mode ); ?>">
 <?php	} else { ?>
 										<input type="checkbox" class="checkbox" id="test_mode" name="test_mode" <?php echo $test_mode ? "checked='on'" : ""; ?>">
 <?php	} ?>
-										<span><?php echo __( "Use the test mode to check the generation of an upload file.", 'vat_moss' ); ?></span>
-										<p style="margin-top: 0px; margin-bottom: 0px;"><?php echo __( "In test mode a license key is not required and an upload file will be generated but the sales values in the generated file will be zero.", 'vat_moss' ); ?></p>
+										<span><?php esc_html_e( "Use the test mode to check the generation of an upload file.", 'vat_moss' ); ?></span>
+										<p style="margin-top: 0px; margin-bottom: 0px;"><?php esc_html_e( "In test mode a license key is not required and an upload file will be generated but the sales values in the generated file will be zero.", 'vat_moss' ); ?></p>
 									</td>
 								</tr>
 								<tr>
-									<td scope="row"><b><?php _e( 'Submission license key', 'vat_moss' ); ?></b></td>
+									<td scope="row"><b><?php esc_html_e( 'Submission license key', 'vat_moss' ); ?></b></td>
 									<td>
-<?php	if ($read_only) { ?>
-										<span><?php echo $submission_key; ?></span>
+<?php	if ( $read_only ) { ?>
+										<span><?php esc_html_e( $submission_key ); ?></span>
 <?php	} else { ?>
-										<input type="text" class="regular-text" id="submission_key" name="submission_key" value="<?php echo $submission_key; ?>">
+										<input type="text" class="regular-text" id="submission_key" name="submission_key" value="<?php esc_html_e( $submission_key ); ?>">
 <?php	} ?>
 									</td>
 								</tr>
-<?php	if (!$read_only) { ?>
+<?php	if ( ! $read_only ) { ?>
 								<tr>
 									<td></td>
 									<td>
@@ -156,9 +164,10 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 									</td>
 								</tr>
 <?php	}
-		if ($submission_id) { ?>
+
+		if ( $submission_id ) { ?>
 								<tr>
-									<td scope="row"><b><?php _e( 'Creation date', 'vat_moss' ); ?></b></td>
+									<td scope="row"><b><?php esc_html_e( 'Creation date', 'vat_moss' ); ?></b></td>
 									<td>
 										<span><?php echo $submission->post_date; ?></span>
 									</td>
@@ -240,7 +249,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 					</div>
 				</div>
 			</div>
-			
+
 			<p><strong><?php _e('It may be that not all the lines shown below are selectable.', 'vat_moss'); ?></strong></p>
 			<p><?php
 				_e('This will occur if a transaction includes more than one item as only one of the items will be selectable for all the items.', 'vat_moss');
@@ -251,7 +260,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 			$sales_list->views();
 			$sales_list->display();
 			do_action( 'moss_submissions_page_bottom' );
-			
+
 			$selected = array();
 ?>
 

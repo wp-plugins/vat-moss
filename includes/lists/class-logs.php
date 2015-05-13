@@ -52,16 +52,16 @@ class MOSS_Logs extends \WP_List_Table {
 
 		// Set parent defaults
 		parent::__construct( array(
-			'singular'  => __('MOSS Submission Log', 'vat_moss'),	// Singular name of the listed records
-			'plural'    => __('MOSS Submission Logs', 'vat_moss'),	// Plural name of the listed records
-			'ajax'      => false									// Does this table support ajax?
+			'singular'  => __( 'MOSS Submission Log', 'vat_moss' ),	// Singular name of the listed records
+			'plural'    => __( 'MOSS Submission Logs', 'vat_moss' ),	// Plural name of the listed records
+			'ajax'      => false,									// Does this table support ajax?
 		));
 		$this->submission_id = $submission_id;
 		$this->query();
 	}
 
 	/**
-	 * 
+	 *
 	 * This function renders most of the columns in the list table.
 	 *
 	 * @access public
@@ -89,8 +89,8 @@ class MOSS_Logs extends \WP_List_Table {
 			'title'				=> __( 'Title' ),
 			'date'				=> __( 'Date', 'vat_moss' ),
 			'status'			=> __( 'Status', 'vat_moss' ),
-			'message'			=> __( 'Message', 'vat_moss'),
-			'buttons'			=> ''
+			'message'			=> __( 'Message', 'vat_moss' ),
+			'buttons'			=> '',
 		);
 
 		return $columns;
@@ -104,7 +104,7 @@ class MOSS_Logs extends \WP_List_Table {
 	 * @return array Array of all the sortable columns
 	 */
 	public function get_sortable_columns() {
-		
+
 		return array(
 			'id'			=> array( 'id', true ),
 			'date'			=> array( 'date', true )
@@ -125,17 +125,17 @@ class MOSS_Logs extends \WP_List_Table {
 	/** ==============================================================
 	 *  BEGIN Query support function
 	 *  --------------------------------------------------------------
-	 * 
+	 *
 	 * The following 10 functions provide sorting for the vat payments
 	 */
 	function sortbydate_asc($a, $b)
 	{
-		return strcasecmp( $a['date'],  $b['date']);
+		return strcasecmp( $a['date'],  $b['date'] );
 	}
 
 	function sortbydate_desc($a, $b)
 	{
-		return strcasecmp( $b['date'],  $a['date']);
+		return strcasecmp( $b['date'],  $a['date'] );
 	}
 
 	function sortbyid_asc($a, $b)
@@ -172,9 +172,9 @@ class MOSS_Logs extends \WP_List_Table {
 
 ?>
 	<div class="tablenav <?php echo esc_attr( $which ); ?>">
-<?php
-		if ($which === 'top') {
-?>
+		<?php
+		if ( $which === 'top' ) {
+		?>
 		<div class="actions bulkactions">
 			<?php $this->bulk_actions( $which ); ?>
 		</div>
@@ -186,10 +186,11 @@ class MOSS_Logs extends \WP_List_Table {
 ?>
 
 		<br class="clear" />
-<?php	
-		if ($which === 'bottom') {
-			foreach($this->logs as $log)
+		<?php
+		if ( $which === 'bottom' ) {
+			foreach ( $this->logs as $log )
 			{
+				// @codingStandardsIgnoreStart
 				echo "<div id=\"response-{$log['id']}\" style=\"display: none;\">";
 				echo $log['response'];
 				echo "</div>";
@@ -197,10 +198,11 @@ class MOSS_Logs extends \WP_List_Table {
 				echo "<div id=\"request-{$log['id']}\" style=\"display: none;\">";
 				echo $log['request'];
 				echo "</div>";
+				// @codingStandardsIgnoreEnd
 			}
 		}
-		
-?>
+
+		?>
 	</div>
 
 <?php
@@ -220,9 +222,9 @@ class MOSS_Logs extends \WP_List_Table {
 
 		$args = array(
 			'post_parent' => $this->submission_id,
-			'post_type'   => 'moss_submission_log', 
+			'post_type'   => 'moss_submission_log',
 			'posts_per_page' => -1,
-			'post_status' => 'any' 
+			'post_status' => 'any',
 		);
 
 		$submission_logs = get_children( $args );
@@ -233,9 +235,9 @@ class MOSS_Logs extends \WP_List_Table {
 			$request = get_post_meta( $log_id, 'xml_initial_request', true );
 			$meta = maybe_unserialize( get_post_meta( $log_id, 'error_message', true ) );
 
-			$message = $meta 
+			$message = $meta
 				? (is_array( $meta )
-					  ? "<p>" . implode("</p><p>", $meta) . "</p>"
+					  ? "<p>" . implode( "</p><p>", $meta ) . "</p>"
 					  : $meta
 				  )
 				: __( 'Report generated successfully', 'vat_moss' );
@@ -244,9 +246,9 @@ class MOSS_Logs extends \WP_List_Table {
 				'id'		=> $log_id,
 				'title' 	=> $log->post_title,
 				'date'		=> $log->post_modified_gmt,
-				'status'	=> isset($wp_post_statuses[$log->post_status]) ? $wp_post_statuses[$log->post_status]->label : $log->post_status,
+				'status'	=> isset( $wp_post_statuses[ $log->post_status ] ) ? $wp_post_statuses[ $log->post_status ]->label : $log->post_status,
 				'buttons'	=> "<a href='?page=moss-submissions&action=delete_submission_log&id=$log_id&submission_id=$this->submission_id' class='button button-primary'>" . __( 'Delete', 'vat_moss' ) . "</a>",
-				'message'	=> $message
+				'message'	=> $message,
 			);
 		}
 
@@ -254,8 +256,8 @@ class MOSS_Logs extends \WP_List_Table {
 		$order		= isset( $_GET['order'] ) ? $_GET['order'] : 'DESC';
 
 		// Sort them
-		$order = strtolower($order);
-		uasort($this->logs, array($this, "sortby{$orderby}_{$order}"));
+		$order = strtolower( $order );
+		uasort( $this->logs, array( $this, "sortby{$orderby}_{$order}" ) );
 
 		return $this->logs;
 	}
@@ -263,7 +265,7 @@ class MOSS_Logs extends \WP_List_Table {
 	/** --------------------------------------------------------------
 	 *  END Query support function
 	 *  ==============================================================
-	 * 
+	 *
 	 * Build all the reports data
 	 *
 	 * @access public
