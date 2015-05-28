@@ -213,7 +213,7 @@ class MOSS_WP_Integrations {
 
 			$result = $integration->update_vat_information($submission_id, $correlation_id, $source_ids[$integration->source]);
 			if (!$result) continue;
-			
+
 			if (!is_array($errors)) $errors = array();
 			if (!is_array($result)) $result = array($result);
 

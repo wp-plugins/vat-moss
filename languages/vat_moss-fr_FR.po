@@ -1,0 +1,1288 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress VAT MOSS Returns v1.0.16\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-04-24 00:55:22+0000\n"
+"Last-Translator: admin <bill.seddon@lyquidity.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: includes/admin/delete_submission.php:22
+#@ vat_moss
+msgid "You do not have rights to delete a submission."
+msgstr ""
+
+#: includes/admin/delete_submission.php:31
+#: includes/admin/submit_submission.php:58
+#@ vat_moss
+msgid "There are no transactions selected for this submission."
+msgstr ""
+
+#: includes/admin/delete_submission.php:81
+#@ vat_moss
+msgid "You do not have rights to delete a submission log."
+msgstr ""
+
+#: includes/admin/new_submission.php:37
+#@ vat_moss
+msgid "You do not have rights to perform this action."
+msgstr ""
+
+#: includes/admin/new_submission.php:45
+#@ vat_moss
+msgid "This action is not valid on a submission that is complete or acknowledged."
+msgstr ""
+
+#: includes/admin/new_submission.php:52
+#@ vat_moss
+msgid "View Submission"
+msgstr ""
+
+#: includes/admin/new_submission.php:53
+#@ vat_moss
+msgid "Edit Submission"
+msgstr ""
+
+#: includes/admin/new_submission.php:55
+#@ vat_moss
+msgid "New Submission"
+msgstr ""
+
+#: includes/admin/new_submission.php:96
+#@ vat_moss
+msgid "Save"
+msgstr ""
+
+#: includes/admin/new_submission.php:97
+#: includes/class-menu.php:29
+#: includes/submissions.php:178
+#: includes/submissions.php:202
+#@ vat_moss
+msgid "Submissions"
+msgstr ""
+
+#: includes/admin/new_submission.php:99
+#: includes/post-types.php:32
+#: includes/submissions.php:203
+#@ vat_moss
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/new_submission.php:110
+#@ vat_moss
+msgid "Details"
+msgstr ""
+
+#: includes/admin/new_submission.php:118
+#@ vat_moss
+msgid "Submission Title"
+msgstr ""
+
+#: includes/admin/new_submission.php:128
+#@ vat_moss
+msgid "Test mode"
+msgstr ""
+
+#: includes/admin/new_submission.php:136
+#@ vat_moss
+msgid "Use the test mode to check the generation of an upload file."
+msgstr ""
+
+#: includes/admin/new_submission.php:137
+#@ vat_moss
+msgid "In test mode a license key is not required and an upload file will be generated but the sales values in the generated file will be zero."
+msgstr ""
+
+#: includes/admin/new_submission.php:141
+#@ vat_moss
+msgid "Submission license key"
+msgstr ""
+
+#: includes/admin/new_submission.php:154
+#@ vat_moss
+msgid "Check License"
+msgstr ""
+
+#: includes/admin/new_submission.php:161
+#@ vat_moss
+msgid "Creation date"
+msgstr ""
+
+#: includes/admin/new_submission.php:167
+#@ vat_moss
+msgid "Last modified date"
+msgstr ""
+
+#: includes/admin/new_submission.php:174
+#@ vat_moss
+msgid "Your MS ID"
+msgstr ""
+
+#: includes/admin/new_submission.php:185
+#@ vat_moss
+msgid "The MS ID is the id issued by your member state tax authority and may be the same as your VAT/TVA number."
+msgstr ""
+
+#: includes/admin/new_submission.php:188
+#@ vat_moss
+msgid "Submitters Name"
+msgstr ""
+
+#: includes/admin/new_submission.php:198
+#@ vat_moss
+msgid "Submitters Email Address"
+msgstr ""
+
+#: includes/admin/new_submission.php:208
+#@ vat_moss
+msgid "Submission Period"
+msgstr ""
+
+#: includes/admin/new_submission.php:221
+#@ vat_moss
+msgid "Total transactions selected"
+msgstr ""
+
+#: includes/admin/new_submission.php:227
+#@ vat_moss
+msgid "Total net value of selected lines"
+msgstr ""
+
+#: includes/admin/new_submission.php:233
+#@ vat_moss
+msgid "Total tax value of selected lines"
+msgstr ""
+
+#: includes/admin/new_submission.php:244
+#@ vat_moss
+msgid "It may be that not all the lines shown below are selectable."
+msgstr ""
+
+#: includes/admin/new_submission.php:246
+#@ vat_moss
+msgid "This will occur if a transaction includes more than one item as only one of the items will be selectable for all the items."
+msgstr ""
+
+#: includes/admin/new_submission.php:248
+#@ vat_moss
+msgid "All items in a transaction must be considered in case they used different VAT rates and, so, must be reported seperately."
+msgstr ""
+
+#: includes/admin/save_submission.php:27
+#@ vat_moss
+msgid "The attempt to save the submission is not valid.  The nonce does not exist or cannot be verified."
+msgstr ""
+
+#: includes/admin/save_submission.php:37
+#@ vat_moss
+msgid "There are no selected sales from which to create a submission"
+msgstr ""
+
+#: includes/admin/save_submission.php:47
+#@ vat_moss
+msgid "The submission does not have a title"
+msgstr ""
+
+#: includes/admin/save_submission.php:168
+#@ vat_moss
+msgid "Submission details saved"
+msgstr ""
+
+#: includes/admin/submit_submission.php:28
+#@ vat_moss
+msgid "You do not have rights to submit an EC MOSS return"
+msgstr ""
+
+#: includes/admin/submit_submission.php:36
+#@ vat_moss
+msgid "A report for this submission has already been generated"
+msgstr ""
+
+#: includes/admin/submit_submission.php:48
+#@ vat_moss
+msgid "No credit license key is available for this submission"
+msgstr ""
+
+#: includes/admin/submit_submission.php:66
+#@ vat_moss
+msgid "There was an error creating the information to generate a submission request."
+msgstr ""
+
+#: includes/admin/submit_submission.php:74
+#@ vat_moss
+msgid "There are no transactions associated with this submission."
+msgstr ""
+
+#: includes/admin/submit_submission.php:283
+#@ vat_moss
+msgid "The EC MOSS submission has been successful."
+msgstr ""
+
+#: includes/admin/submit_submission.php:287
+#@ vat_moss
+msgid "The attempt to submit the EC MOSS return failed. See the log for more information."
+msgstr ""
+
+#: includes/admin-notices.php:31
+#@ vat_moss
+msgid "The Aelia EU VAT Assistant or the Simba EU VAT Compliance (Premium) plug-in must be installed to use the WooCommerce integration."
+msgstr ""
+
+#: includes/admin-notices.php:36
+#@ vat_moss
+msgid "The Lyquidity VAT plugin for EDD must be installed to use the EDD integration."
+msgstr ""
+
+#: includes/admin-notices.php:54
+#@ vat_moss
+msgid "The option to confirm the plugin will be used only for single establishment companies has not been checked. This plug-in cannot be use by companies with registrations in multiple EU states."
+msgstr ""
+
+#: includes/class-html-elements.php:69
+#@ vat_moss
+msgid "Q"
+msgstr ""
+
+#: includes/class-html-elements.php:138
+#@ vat_moss
+msgctxt "all dropdown items"
+msgid "All"
+msgstr ""
+
+#: includes/class-html-elements.php:139
+#@ vat_moss
+msgctxt "no dropdown items"
+msgid "None"
+msgstr ""
+
+#: includes/class-html-elements.php:327
+#@ vat_moss
+msgid "Enter username"
+msgstr ""
+
+#: includes/class-integrations.php:220
+#, php-format
+#@ vat_moss
+msgid "Errors occurred update VAT information for records in source '%s'"
+msgstr ""
+
+#: includes/class-integrations.php:295
+#, php-format
+#@ vat_moss
+msgid "Failed to access record information for source '%s'"
+msgstr ""
+
+#: includes/class-integrations.php:448
+#@ vat_moss
+msgid "An error occurred reading Euro exchange rates and no exchange rates have been read."
+msgstr ""
+
+#: includes/class-integrations.php:449
+#@ vat_moss
+msgid "An error occurred reading Euro exchange rates. The existing rates will be used but these may be inaccurate."
+msgstr ""
+
+#: includes/class-integrations.php:551
+#, php-format
+#@ vat_moss
+msgid "Errors occurred removing VAT information from records in source '%1s'"
+msgstr ""
+
+#: includes/class-menu.php:27
+#: includes/lists/class-submissions.php:51
+#: includes/post-types.php:96
+#@ vat_moss
+msgid "MOSS Submissions"
+msgstr ""
+
+#: includes/class-menu.php:27
+#@ vat_moss
+msgid "MOSS"
+msgstr ""
+
+#: includes/class-menu.php:30
+#@ vat_moss
+msgid "Settings"
+msgstr ""
+
+#: includes/class-settings.php:166
+#@ vat_moss
+msgid "Settings updated."
+msgstr ""
+
+#: includes/class-settings.php:184
+#@ vat_moss
+msgid "Submission Details"
+msgstr ""
+
+#: includes/class-settings.php:189
+#@ vat_moss
+msgid "Your VAT Number"
+msgstr ""
+
+#: includes/class-settings.php:190
+#@ vat_moss
+msgid "Enter your VAT number without country code."
+msgstr ""
+
+#: includes/class-settings.php:194
+#@ vat_moss
+msgid "Company Name"
+msgstr ""
+
+#: includes/class-settings.php:195
+#@ vat_moss
+msgid "The name of your company (required for some upload files such as Cypress)."
+msgstr ""
+
+#: includes/class-settings.php:200
+#@ vat_moss
+msgid "Submitter's Name"
+msgstr ""
+
+#: includes/class-settings.php:201
+#@ vat_moss
+msgid "The default name of the submitter."
+msgstr ""
+
+#: includes/class-settings.php:205
+#@ vat_moss
+msgid "Submitter's Email Address"
+msgstr ""
+
+#: includes/class-settings.php:206
+#@ vat_moss
+msgid "Enter a default email address for the submission."
+msgstr ""
+
+#: includes/class-settings.php:211
+#@ vat_moss
+msgid "Registered Member State"
+msgstr ""
+
+#: includes/class-settings.php:212
+#@ vat_moss
+msgid "Where is your company registered?  If your company is not an EU company select the 'Non-EU' option."
+msgstr ""
+
+#: includes/class-settings.php:216
+#@ vat_moss
+msgid "Select a country"
+msgstr ""
+
+#: includes/class-settings.php:220
+#@ vat_moss
+msgid "Currency"
+msgstr ""
+
+#: includes/class-settings.php:221
+#@ vat_moss
+msgid "Select your shop currency."
+msgstr ""
+
+#: includes/class-settings.php:227
+#@ vat_moss
+msgid "Only fixed establishment"
+msgstr ""
+
+#: includes/class-settings.php:228
+#@ vat_moss
+msgid "Please confirm this is your only 'fixed establishment'."
+msgstr ""
+
+#: includes/class-settings.php:229
+#@ vat_moss
+msgid "This plugin is only suitable for use by companies that are registered for VAT in only one member state."
+msgstr ""
+
+#: includes/class-settings.php:233
+#@ vat_moss
+msgid "Output format"
+msgstr ""
+
+#: includes/class-settings.php:234
+#@ vat_moss
+msgid "Select the output format you require"
+msgstr ""
+
+#: includes/class-settings.php:238
+#@ vat_moss
+msgid "Select a format"
+msgstr ""
+
+#: includes/class-settings.php:241
+#@ vat_moss
+msgid "All products"
+msgstr ""
+
+#: includes/class-settings.php:242
+#@ vat_moss
+msgid "(WooCommerce only) False if only virtual products should be used; True if all products should be used."
+msgstr ""
+
+#: includes/class-settings.php:251
+#: includes/settings.php:69
+#@ vat_moss
+msgid "Integrations"
+msgstr ""
+
+#: includes/class-settings.php:252
+#@ vat_moss
+msgid "Choose the integrations to enable."
+msgstr ""
+
+#: includes/class-settings.php:455
+#, php-format
+#@ vat_moss
+msgid "The callback function used for the <strong>%s</strong> setting is missing."
+msgstr ""
+
+#: includes/class-vat-moss-roles.php:46
+#@ vat_moss
+msgid "MOSS Submitter"
+msgstr ""
+
+#: includes/class-vat-moss-roles.php:52
+#@ vat_moss
+msgid "MOSS Reviewer"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:29
+#@ vat_moss
+msgid "Dummy (Lyquidity Solutions)"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:123
+#: includes/integrations/class-edd.php:236
+#: includes/integrations/class-wooc.php:323
+#@ vat_moss
+msgid "The submission id is not valid"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:128
+#: includes/integrations/class-dummy.php:209
+#: includes/integrations/class-edd.php:241
+#: includes/integrations/class-edd.php:410
+#: includes/integrations/class-wooc.php:328
+#: includes/integrations/class-wooc.php:549
+#@ vat_moss
+msgid "The VAT sales records passed are not an array"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:149
+#: includes/integrations/class-edd.php:256
+#: includes/integrations/class-wooc.php:343
+#@ vat_moss
+msgid "An error occurred updating MOSS sales record meta data"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:166
+#: includes/integrations/class-edd.php:293
+#: includes/integrations/class-wooc.php:380
+#@ vat_moss
+msgid "Invalid source"
+msgstr ""
+
+#: includes/integrations/class-dummy.php:231
+#: includes/integrations/class-edd.php:423
+#: includes/integrations/class-wooc.php:562
+#@ vat_moss
+msgid "An error occurred deleting MOSS sales record meta data"
+msgstr ""
+
+#: includes/integrations/class-edd.php:29
+#@ vat_moss
+msgid "Easy Digital Downloads"
+msgstr ""
+
+#: includes/integrations/class-wooc.php:29
+#@ vat_moss
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/lists/class-logs.php:55
+#: includes/post-types.php:109
+#@ vat_moss
+msgid "MOSS Submission Log"
+msgstr ""
+
+#: includes/lists/class-logs.php:56
+#: includes/post-types.php:110
+#@ vat_moss
+msgid "MOSS Submission Logs"
+msgstr ""
+
+#: includes/lists/class-logs.php:88
+#: includes/lists/class-sales.php:167
+#@ default
+#@ vat_moss
+msgid "ID"
+msgstr ""
+
+#: includes/lists/class-logs.php:89
+#: includes/lists/class-submissions.php:187
+#@ default
+#@ vat_moss
+msgid "Title"
+msgstr ""
+
+#: includes/lists/class-logs.php:90
+#: includes/lists/class-sales.php:169
+#: includes/lists/class-submissions.php:186
+#@ vat_moss
+msgid "Date"
+msgstr ""
+
+#: includes/lists/class-logs.php:91
+#@ vat_moss
+msgid "Status"
+msgstr ""
+
+#: includes/lists/class-logs.php:92
+#@ vat_moss
+msgid "Message"
+msgstr ""
+
+#: includes/lists/class-logs.php:241
+#@ vat_moss
+msgid "Report generated successfully"
+msgstr ""
+
+#: includes/lists/class-logs.php:248
+#: includes/lists/class-submissions.php:120
+#@ vat_moss
+msgid "Delete"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:44
+#@ vat_moss
+msgid "MOSS Submission Summary"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:45
+#@ vat_moss
+msgid "MOSS Submission Summaries"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:77
+#: includes/lists/class-sales.php:171
+#@ vat_moss
+msgid "Country"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:78
+#: includes/lists/class-sales.php:172
+#@ vat_moss
+msgid "VAT Type"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:79
+#@ vat_moss
+msgid "VAT Rate (%)"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:80
+#: includes/lists/class-sales.php:175
+#@ vat_moss
+msgid "Net"
+msgstr ""
+
+#: includes/lists/class-moss-summary.php:81
+#: includes/lists/class-sales.php:174
+#@ vat_moss
+msgid "Tax"
+msgstr ""
+
+#: includes/lists/class-sales.php:61
+#@ vat_moss
+msgid "MOSS Sale"
+msgstr ""
+
+#: includes/lists/class-sales.php:62
+#@ vat_moss
+msgid "MOSS Sales"
+msgstr ""
+
+#: includes/lists/class-sales.php:168
+#@ vat_moss
+msgid "Purchase ID"
+msgstr ""
+
+#: includes/lists/class-sales.php:170
+#@ vat_moss
+msgid "Source"
+msgstr ""
+
+#: includes/lists/class-sales.php:173
+#@ vat_moss
+msgid "VAT %"
+msgstr ""
+
+#: includes/lists/class-sales.php:225
+#: includes/lists/class-submissions.php:240
+#@ vat_moss
+msgid "From"
+msgstr ""
+
+#: includes/lists/class-sales.php:239
+#: includes/lists/class-submissions.php:245
+#@ vat_moss
+msgid "To"
+msgstr ""
+
+#: includes/lists/class-sales.php:257
+#: includes/lists/class-submissions.php:254
+#@ vat_moss
+msgid "Search"
+msgstr ""
+
+#: includes/lists/class-sales.php:383
+#: includes/lists/class-submissions.php:292
+#@ vat_moss
+msgid "Show"
+msgstr ""
+
+#: includes/lists/class-submissions.php:50
+#: includes/post-types.php:95
+#@ vat_moss
+msgid "MOSS Submission"
+msgstr ""
+
+#: includes/lists/class-submissions.php:121
+#@ vat_moss
+msgid "Edit"
+msgstr ""
+
+#: includes/lists/class-submissions.php:122
+#@ vat_moss
+msgid "View"
+msgstr ""
+
+#: includes/lists/class-submissions.php:123
+#@ vat_moss
+msgid "Summary"
+msgstr ""
+
+#: includes/lists/class-submissions.php:124
+#@ vat_moss
+msgid "Logs"
+msgstr ""
+
+#: includes/lists/class-submissions.php:125
+#@ vat_moss
+msgid "Generate"
+msgstr ""
+
+#: includes/lists/class-submissions.php:126
+#@ vat_moss
+msgid "Test"
+msgstr ""
+
+#: includes/lists/class-submissions.php:127
+#@ vat_moss
+msgid "Download"
+msgstr ""
+
+#: includes/lists/class-submissions.php:129
+#@ vat_moss
+msgid "Delete this submission"
+msgstr ""
+
+#: includes/lists/class-submissions.php:130
+#@ vat_moss
+msgid "Edit this submission"
+msgstr ""
+
+#: includes/lists/class-submissions.php:131
+#@ vat_moss
+msgid "View the transaction in this submission"
+msgstr ""
+
+#: includes/lists/class-submissions.php:132
+#@ vat_moss
+msgid "View MOSS return summary"
+msgstr ""
+
+#: includes/lists/class-submissions.php:133
+#@ vat_moss
+msgid "View the submission logs"
+msgstr ""
+
+#: includes/lists/class-submissions.php:134
+#@ vat_moss
+msgid "Generate a submission report"
+msgstr ""
+
+#: includes/lists/class-submissions.php:135
+#@ vat_moss
+msgid "Test a report"
+msgstr ""
+
+#: includes/lists/class-submissions.php:136
+#@ vat_moss
+msgid "Download the report file"
+msgstr ""
+
+#: includes/lists/class-submissions.php:188
+#@ vat_moss
+msgid "Period"
+msgstr ""
+
+#: includes/lists/class-submissions.php:189
+#@ vat_moss
+msgid "Submitter"
+msgstr ""
+
+#: includes/lists/class-submissions.php:190
+#@ vat_moss
+msgid "State"
+msgstr ""
+
+#: includes/lists/class-submissions.php:191
+#@ vat_moss
+msgid "Total Net"
+msgstr ""
+
+#: includes/lists/class-submissions.php:192
+#@ vat_moss
+msgid "Total Tax"
+msgstr ""
+
+#: includes/lists/class-submissions.php:414
+#@ vat_moss
+msgid "Author"
+msgstr ""
+
+#: includes/meta-box.php:42
+#@ vat_moss
+msgid "VAT MOSS Rate Type"
+msgstr ""
+
+#: includes/meta-box.php:62
+#@ vat_moss
+msgid "Standard"
+msgstr ""
+
+#: includes/meta-box.php:62
+#@ vat_moss
+msgid "Reduced"
+msgstr ""
+
+#: includes/meta-box.php:71
+#@ vat_moss
+msgid "Select the VAT rate_type to use for this product when purchases are reported in MOSS submission."
+msgstr ""
+
+#: includes/post-types.php:33
+#, php-format
+#@ vat_moss
+msgid "Add New %1$s"
+msgstr ""
+
+#: includes/post-types.php:34
+#, php-format
+#@ vat_moss
+msgid "Edit %1$s"
+msgstr ""
+
+#: includes/post-types.php:35
+#, php-format
+#@ vat_moss
+msgid "New %1$s"
+msgstr ""
+
+#: includes/post-types.php:36
+#, php-format
+#@ vat_moss
+msgid "All %2$s"
+msgstr ""
+
+#: includes/post-types.php:37
+#, php-format
+#@ vat_moss
+msgid "View %1$s"
+msgstr ""
+
+#: includes/post-types.php:38
+#, php-format
+#@ vat_moss
+msgid "Search %2$s"
+msgstr ""
+
+#: includes/post-types.php:39
+#, php-format
+#@ vat_moss
+msgid "No %2$s found"
+msgstr ""
+
+#: includes/post-types.php:40
+#, php-format
+#@ vat_moss
+msgid "No %2$s found in Trash"
+msgstr ""
+
+#: includes/post-types.php:42
+#, php-format
+#@ vat_moss
+msgid "%2$s"
+msgstr ""
+
+#: includes/post-types.php:174
+#: includes/post-types.php:182
+#, php-format
+#@ vat_moss
+msgid "Enter %s title here"
+msgstr ""
+
+#: includes/post-types.php:199
+#@ vat_moss
+msgctxt "Failed generation status"
+msgid "Failed"
+msgstr ""
+
+#: includes/post-types.php:204
+#, php-format
+#@ vat_moss
+msgid "Failed <span class=\"count\">(%s)</span>"
+msgid_plural "Failed <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/post-types.php:207
+#@ vat_moss
+msgctxt "Generated status"
+msgid "Generated"
+msgstr ""
+
+#: includes/post-types.php:212
+#, php-format
+#@ vat_moss
+msgid "Generated <span class=\"count\">(%s)</span>"
+msgid_plural "Generated <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/post-types.php:215
+#@ vat_moss
+msgctxt "Not generated status"
+msgid "Not generated"
+msgstr ""
+
+#: includes/post-types.php:220
+#: includes/post-types.php:228
+#, php-format
+#@ vat_moss
+msgid "Unknown <span class=\"count\">(%s)</span>"
+msgid_plural "Unknown <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/post-types.php:223
+#@ vat_moss
+msgctxt "Unknown status"
+msgid "Unknown"
+msgstr ""
+
+#: includes/post-types.php:250
+#: includes/post-types.php:251
+#, php-format
+#@ vat_moss
+msgid "%2$s updated. %1$sView %2$s%3$s."
+msgstr ""
+
+#: includes/post-types.php:252
+#, php-format
+#@ vat_moss
+msgid "%2$s published. %1$sView %2$s%3$s."
+msgstr ""
+
+#: includes/post-types.php:253
+#, php-format
+#@ vat_moss
+msgid "%2$s saved. %1$sView %2$s%3$s."
+msgstr ""
+
+#: includes/post-types.php:254
+#, php-format
+#@ vat_moss
+msgid "%2$s submitted. %1$sView %2$s%3$s."
+msgstr ""
+
+#: includes/settings.php:68
+#@ vat_moss
+msgid "General"
+msgstr ""
+
+#: includes/settings.php:82
+#@ vat_moss
+msgid "Euros (&euro;)"
+msgstr ""
+
+#: includes/settings.php:83
+#@ vat_moss
+msgid "Pounds Sterling (&pound;)"
+msgstr ""
+
+#: includes/settings.php:84
+#@ vat_moss
+msgid "US Dollars (&#36;)"
+msgstr ""
+
+#: includes/settings.php:85
+#@ vat_moss
+msgid "Australian Dollars (&#36;)"
+msgstr ""
+
+#: includes/settings.php:86
+#@ vat_moss
+msgid "Brazilian Real (R&#36;)"
+msgstr ""
+
+#: includes/settings.php:87
+#@ vat_moss
+msgid "Canadian Dollars (&#36;)"
+msgstr ""
+
+#: includes/settings.php:88
+#@ vat_moss
+msgid "Czech Koruna"
+msgstr ""
+
+#: includes/settings.php:89
+#@ vat_moss
+msgid "Danish Krone"
+msgstr ""
+
+#: includes/settings.php:90
+#@ vat_moss
+msgid "Hong Kong Dollar (&#36;)"
+msgstr ""
+
+#: includes/settings.php:91
+#@ vat_moss
+msgid "Hungarian Forint"
+msgstr ""
+
+#: includes/settings.php:92
+#@ vat_moss
+msgid "Israeli Shekel (&#8362;)"
+msgstr ""
+
+#: includes/settings.php:93
+#@ vat_moss
+msgid "Japanese Yen (&yen;)"
+msgstr ""
+
+#: includes/settings.php:94
+#@ vat_moss
+msgid "Malaysian Ringgits"
+msgstr ""
+
+#: includes/settings.php:95
+#@ vat_moss
+msgid "Mexican Peso (&#36;)"
+msgstr ""
+
+#: includes/settings.php:96
+#@ vat_moss
+msgid "New Zealand Dollar (&#36;)"
+msgstr ""
+
+#: includes/settings.php:97
+#@ vat_moss
+msgid "Norwegian Krone"
+msgstr ""
+
+#: includes/settings.php:98
+#@ vat_moss
+msgid "Philippine Pesos"
+msgstr ""
+
+#: includes/settings.php:99
+#@ vat_moss
+msgid "Polish Zloty"
+msgstr ""
+
+#: includes/settings.php:100
+#@ vat_moss
+msgid "Singapore Dollar (&#36;)"
+msgstr ""
+
+#: includes/settings.php:101
+#@ vat_moss
+msgid "Swedish Krona"
+msgstr ""
+
+#: includes/settings.php:102
+#@ vat_moss
+msgid "Swiss Franc"
+msgstr ""
+
+#: includes/settings.php:103
+#@ vat_moss
+msgid "Taiwan New Dollars"
+msgstr ""
+
+#: includes/settings.php:104
+#@ vat_moss
+msgid "Thai Baht (&#3647;)"
+msgstr ""
+
+#: includes/settings.php:105
+#@ vat_moss
+msgid "Indian Rupee (&#8377;)"
+msgstr ""
+
+#: includes/settings.php:106
+#@ vat_moss
+msgid "Turkish Lira (&#8378;)"
+msgstr ""
+
+#: includes/settings.php:107
+#@ vat_moss
+msgid "Iranian Rial (&#65020;)"
+msgstr ""
+
+#: includes/settings.php:108
+#@ vat_moss
+msgid "Russian Rubles"
+msgstr ""
+
+#: includes/settings.php:182
+#@ vat_moss
+msgid "UK (spreadsheet)"
+msgstr ""
+
+#: includes/settings.php:183
+#@ vat_moss
+msgid "Austria (xml)"
+msgstr ""
+
+#: includes/settings.php:184
+#@ vat_moss
+msgid "Belgium (xml)"
+msgstr ""
+
+#: includes/settings.php:185
+#@ vat_moss
+msgid "Denmark (csv)"
+msgstr ""
+
+#: includes/settings.php:186
+#@ vat_moss
+msgid "Germany (csv)"
+msgstr ""
+
+#: includes/settings.php:187
+#@ vat_moss
+msgid "Estonia (xml)"
+msgstr ""
+
+#: includes/settings.php:188
+#@ vat_moss
+msgid "Lithuania (xml)"
+msgstr ""
+
+#: includes/settings.php:189
+#@ vat_moss
+msgid "Luxembourg (xml)"
+msgstr ""
+
+#: includes/settings.php:190
+#@ vat_moss
+msgid "Sweden (csv)"
+msgstr ""
+
+#: includes/settings.php:195
+#@ vat_moss
+msgid "EC generic (two/three column csv)"
+msgstr ""
+
+#: includes/submissions.php:57
+#: includes/submissions.php:71
+#: includes/submissions.php:94
+#@ vat_moss
+msgid "There is no id of the submission for which to show logs."
+msgstr ""
+
+#: includes/submissions.php:79
+#@ vat_moss
+msgid "There is no id of the submission log to delete."
+msgstr ""
+
+#: includes/submissions.php:106
+#@ vat_moss
+msgid "There is no id of the submission to submit."
+msgstr ""
+
+#: includes/submissions.php:118
+#@ vat_moss
+msgid "There is no id of the submission details to view."
+msgstr ""
+
+#: includes/submissions.php:137
+#@ vat_moss
+msgid "There is no id of the submission to edit."
+msgstr ""
+
+#: includes/submissions.php:152
+#@ vat_moss
+msgid "There is no id of the submission to delete."
+msgstr ""
+
+#: includes/submissions.php:179
+#@ vat_moss
+msgid "Submission Logs"
+msgstr ""
+
+#: includes/submissions.php:196
+#@ vat_moss
+msgid "To find information to help you use this plug-in"
+msgstr ""
+
+#: includes/submissions.php:197
+#@ vat_moss
+msgid "visit the plug-in page on our site"
+msgstr ""
+
+#: includes/submissions.php:198
+#@ vat_moss
+msgid "Please note that to ensure we are able to process any submissions you make, to verify any completed submissions or to be able to answer questions about any submissions you make that fail, details of your submission will be held on our site."
+msgstr ""
+
+#: includes/submissions.php:201
+#@ vat_moss
+msgid "Refresh"
+msgstr ""
+
+#: includes/submissions.php:248
+#@ vat_moss
+msgid "MOSS Summary for submission "
+msgstr ""
+
+#. translators: plugin header field 'Name'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "WordPress VAT MOSS Returns"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "http://www.wproute.com/downloads/vat-moss/"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "Management and submission of VAT sales to EU consumers."
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "Lyquidity Solutions"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "http://www.wproute.com/"
+msgstr ""
+
+#: vat-moss.php:199
+#@ vat_moss
+msgid "You do not have rights to download an EC MOSS return"
+msgstr ""
+
+#: vat-moss.php:207
+#: vat-moss.php:214
+#: vat-moss.php:313
+#@ vat_moss
+msgid "There is no submission id"
+msgstr ""
+
+#: vat-moss.php:221
+#@ vat_moss
+msgid "There is no report to download"
+msgstr ""
+
+#: vat-moss.php:321
+#@ vat_moss
+msgid "There are no transaction selections assigned to this submission."
+msgstr ""
+
+#: vat-moss.php:329
+#@ vat_moss
+msgid "There was an error creating the information to generate a summary report."
+msgstr ""
+
+#: vat-moss.php:337
+#@ vat_moss
+msgid "There are no transactions assigned to this submission."
+msgstr ""
+
+#: vat-moss.php:381
+#@ vat_moss
+msgid "An error occurred during plugin activation: "
+msgstr ""
+
+#: vat-moss.php:398
+#@ vat_moss
+msgid "An error occurred during plugin deactivation: "
+msgstr ""
+
+#: vat-moss.php:454
+#@ vat_moss
+msgid "The VAT number supplied is too short"
+msgstr ""
+
+#: vat-moss.php:457
+#@ vat_moss
+msgid "The VAT number supplied does not have a valid format"
+msgstr ""
+
+#: vat-moss.php:460
+#@ vat_moss
+msgid "Simple check failed"
+msgstr ""
+
+#: vat-moss.php:463
+#@ vat_moss
+msgid "An error occurred validating the VAT number supplied"
+msgstr ""
+
+#: vat-moss.php:553
+#@ vat_moss
+msgid "There is no license key to check"
+msgstr ""
+
+#: vat-moss.php:554
+#@ vat_moss
+msgid "There is no sender id to test"
+msgstr ""
+
+#: vat-moss.php:555
+#@ vat_moss
+msgid "There is no password"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: vat-moss.php:0
+#@ vat_moss
+msgid "1.0.16"
+msgstr ""
+

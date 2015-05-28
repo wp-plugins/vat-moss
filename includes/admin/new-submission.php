@@ -106,7 +106,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 
 			<input type="hidden" name="post_type" value="submission"/>
 			<input type="hidden" name="page" value="moss-submissions"/>
-			<input type="hidden" name="submission_id" value="<?php esc_html_e( $submission_id ); ?>"/>
+			<input type="hidden" name="submission_id" value="<?php echo esc_attr( $submission_id ); ?>"/>
 			<input type="hidden" name="_wp_nonce" value="<?php
 			// @codingStandardsIgnoreStart
 			echo wp_create_nonce( 'moss_submission' );
@@ -137,7 +137,7 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 									<td>
 <?php	if ( $read_only ) { ?>
 										<span><?php echo $test_mode ? "Yes" : "No"; ?></span>&nbsp;-&nbsp;
-										<input type="hidden" id="ecsl_settings_test_mode" value="<?php esc_html_e( $test_mode ); ?>">
+										<input type="hidden" id="ecsl_settings_test_mode" value="<?php esc_attr( $test_mode ); ?>">
 <?php	} else { ?>
 										<input type="checkbox" class="checkbox" id="test_mode" name="test_mode" <?php echo $test_mode ? "checked='on'" : ""; ?>">
 <?php	} ?>
@@ -149,9 +149,9 @@ function new_submission($from_year = null, $from_month = null, $to_year = null, 
 									<td scope="row"><b><?php esc_html_e( 'Submission license key', 'vat_moss' ); ?></b></td>
 									<td>
 <?php	if ( $read_only ) { ?>
-										<span><?php esc_html_e( $submission_key ); ?></span>
+										<span><?php esc_attr( $submission_key ); ?></span>
 <?php	} else { ?>
-										<input type="text" class="regular-text" id="submission_key" name="submission_key" value="<?php esc_html_e( $submission_key ); ?>">
+										<input type="text" class="regular-text" id="submission_key" name="submission_key" value="<?php esc_attr( $submission_key ); ?>">
 <?php	} ?>
 									</td>
 								</tr>

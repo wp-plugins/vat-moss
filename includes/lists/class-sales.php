@@ -460,7 +460,7 @@ class MOSS_Sales_List extends \WP_List_Table {
 		{
 			$this->vat_payments = array_filter($this->vat_payments, function($payment) use($selected)
 				{
-					if ( ! isset( $payment['submission_id'] ) || $payment['submission_id'] === 0) return true;
+					if ( ! isset( $payment['submission_id'] ) || empty( $payment['submission_id'] ) || $payment['submission_id'] === 0) return true;
 					if ( ! is_array( $selected ) ) return false;
 					return isset( $selected[ $payment['source'] ][ $payment['id'] ] );
 			});
