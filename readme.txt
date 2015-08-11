@@ -4,8 +4,8 @@ Plugin URI: http://www.wproute.com/wp-vat-moss-submissions/
 Contributors: bseddon
 Tags: VAT, HMRC, MOSS, M1SS, tax, EU, UKdigital vat, Easy Digital Downloads, edd, edd tax, edd vat, eu tax, eu vat, eu vat compliance, european tax, european vat, iva, iva ue, Mehrwertsteuer, mwst, taux de TVA, tax, TVA, VAT, vat compliance, vat moss, vat rates, vatmoss, WooCommerce
 Requires at least: 3.9.2
-Tested up to: 4.2.2
-Stable Tag: 1.0.18
+Tested up to: 4.3
+Stable Tag: 1.0.19
 License: GNU Version 2 or Any Later Version
 
 Vendors in all EU member states can create EU VAT MOSS report definitions from Easy Digital Downloads and Woo Commerce sales records and create upload files to be sent your tax authority.
@@ -150,6 +150,10 @@ Fixed problem preventing the generation of a summary report
 = 1.0.18 =
 
 Fixed problem introduced as part of the effort to implement the WordPress advisory on using escape functions
+
+= 1.0.19 =
+
+Fixed problem preventing any entered license key showing
 
 == Upgrade Notice ==
 
